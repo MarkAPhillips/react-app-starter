@@ -1,0 +1,29 @@
+{
+  "name": "react-app-starter",
+  "version": "1.0.0",
+  "description": "React app starter using webpack, recompose, redux and styled components with jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkAPhillips/react-app-starter.git"
+  },
+  "author": "Mark Phillips",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarkAPhillips/react-app-starter/issues"
+  },
+  "homepage": "https://github.com/MarkAPhillips/react-app-starter#readme",
+  "dependencies": {
+    "react": "^16.1.1",
+    "redux": "^3.7.2",
+    "styled-components": "^2.2.3"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  }
+}
