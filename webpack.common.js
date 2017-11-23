@@ -1,19 +1,19 @@
 /* eslint-disable */
 const path = require('path');
-const PACKAGE = require('./package.json');
+const pkg = require('./package.json');
 const webpack = require('webpack');
-const moment = require('moment');HtmlWebpackPlugin = require('html-webpack-plugin');
+const moment = require('moment');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const childProcess = require('child_process');
-const COMMIT = childProcess.execSync('git rev-parse --short HEAD').toString();
-const ENV = process.env.npm_lifecycle_event;
+const commit = childProcess.execSync('git rev-parse --short HEAD').toString();
 
 var config = {};
 
 config.entry = {
 	app: ['./src/'],
-	vendor: [],
+	vendor: Object.keys(pkg.dependencies),
 };
 
 config.resolve = {
@@ -30,6 +30,10 @@ config.output = {
 config.devtool = 'source-map';
 config.plugins = [];
 
+/* Cleans the directory */
+config.plugins.push(new CleanWebpackPlugin(['./dist']));
+config.plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
+
 /* Generates index.html file and injects the bundle.js file into it */
 config.plugins.push(
 	new HtmlWebpackPlugin({
@@ -42,8 +46,8 @@ var buildDate = JSON.stringify(moment().format('DD-MM-YYYY HH:mm'));
 
 var globals = {
 	__BUILD__: {
-		VERSION: JSON.stringify(PACKAGE.version),
-		COMMIT: JSON.stringify(COMMIT),
+		VERSION: JSON.stringify(pkg.version),
+		COMMIT: JSON.stringify(commit),
 		DATE: buildDate,
 	},
 };
