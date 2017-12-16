@@ -1,6 +1,7 @@
 import styledNormalize from 'styled-normalize';
 import { injectGlobal } from 'styled-components';
 import 'font-awesome/css/font-awesome.min.css';
+import { fonts, colours } from './variables';
 
 import CLRSTtfFont from '../assets/fonts/theinhardt-ultralight-webfont.ttf';
 import CLRSWoffFont from '../assets/fonts/theinhardt-ultralight-webfont.woff';
@@ -9,7 +10,7 @@ export default () => injectGlobal`
   ${styledNormalize}
  
   @font-face {
-    font-family: 'TheInhardt';
+    font-family: ${fonts.family};
     src: url(${CLRSTtfFont}),
          url(${CLRSWoffFont});
   }
@@ -21,11 +22,11 @@ export default () => injectGlobal`
   }
 
   body {
-    font-family: 'TheInhardt';
+    font-family: ${fonts.family};
     padding: 0;
     font-weight: normal;
-    background-color:#fff;
-    color:#000;
-    font-size:18px;
+    background-color:${colours.white};
+    color:${colours.black};
+    font-size:${fonts.size};
   }
 `;
