@@ -3,16 +3,14 @@ import { injectGlobal } from 'styled-components';
 import 'font-awesome/css/font-awesome.min.css';
 import { fonts, colours } from './variables';
 
-import CLRSTtfFont from '../assets/fonts/theinhardt-ultralight-webfont.ttf';
-import CLRSWoffFont from '../assets/fonts/theinhardt-ultralight-webfont.woff';
+import externalFont from '../assets/fonts/OpenSans-Regular-webfont.woff';
 
 export default () => injectGlobal`
   ${styledNormalize}
  
   @font-face {
     font-family: ${fonts.family};
-    src: url(${CLRSTtfFont}),
-         url(${CLRSWoffFont});
+    src: url(${externalFont})
   }
 
   html, body  {
