@@ -1,0 +1,13 @@
+{
+    "catalogue": [
+        {
+            "rgb": [255,1,1],
+            "data": [
+                {"year" : 2014, "popularity": 0.02},
+                {"year" : 2015, "popularity": 0.03},
+                {"year" : 2016, "popularity": 0.02},
+                {"year" : 2017, "popularity": 0.05}
+            ]
+        }
+    ]
+}

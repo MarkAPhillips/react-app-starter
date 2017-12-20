@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { chartReducer } from '../src/charts/';
+import { chart } from '../src/charts/';
 
 const rootReducer = combineReducers({
-  chartReducer,
+  chart,
 });
 
 export default rootReducer;
