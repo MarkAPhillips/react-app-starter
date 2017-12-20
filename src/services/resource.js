@@ -1,9 +1,9 @@
 import axios from 'axios';
-import AppConstants from '../app.constants';
+import { API } from '../constants';
 
 function validateStatus(status) {
-  return status >= AppConstants.API.STATUS_CODES.OK
-    && status < AppConstants.API.STATUS_CODES.INTERNAL_SERVER_ERROR;
+  return status >= API.STATUS_CODES.OK
+    && status < API.STATUS_CODES.INTERNAL_SERVER_ERROR;
 }
 
 const defaultHeader = {
@@ -12,8 +12,8 @@ const defaultHeader = {
 
 function createInstance(headers = defaultHeader) {
   return axios.create({
-    baseURL: AppConstants.API.ROOT_URL,
-    timeout: AppConstants.API.TIMEOUT_MS,
+    baseURL: API.ROOT_URL,
+    timeout: API.TIMEOUT_MS,
     headers,
     validateStatus,
   });

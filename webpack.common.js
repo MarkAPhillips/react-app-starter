@@ -8,7 +8,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const config = {};
 
 function buildVendorBundle() {
-  return pullAll(Object.keys(pkg.dependencies), ['font-awesome', 'lodash']);
+  return pullAll(Object.keys(pkg.dependencies), ['font-awesome']);
 }
 
 config.entry = {

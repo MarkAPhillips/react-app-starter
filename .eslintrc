@@ -4,7 +4,8 @@
         "browser": true
     },
     "globals": {
-        "_": true
+        "_": true,
+        "d3": true
     },
     "rules": {
         "linebreak-style": [
