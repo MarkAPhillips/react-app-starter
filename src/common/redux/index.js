@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import { chart } from '../src/charts/';
+import { error } from './error';
+import { chart } from '../../charts/redux';
 
 const rootReducer = combineReducers({
-  chart,
+  chart, error,
 });
 
 export default rootReducer;

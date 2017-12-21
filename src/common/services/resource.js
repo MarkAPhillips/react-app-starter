@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API } from '../constants';
+import API from '../constants';
 
 function validateStatus(status) {
   return status >= API.STATUS_CODES.OK
@@ -20,7 +20,7 @@ function createInstance(headers = defaultHeader) {
 }
 
 function buildQueryStringParams(params) {
-  if (params == null) return null;
+  if (params == null) return '';
   const queryString = Object.keys(params).map(key => `${key}=${encodeURIComponent(params[key])}`).join('&');
   return `?${queryString}`;
 }

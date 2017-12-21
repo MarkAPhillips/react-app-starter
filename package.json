@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack --progress --colors --config webpack.prod.js",
-    "start": "webpack-dev-server --port 5000 --inline --config webpack.dev.js  --history-api-fallback --open chrome",
+    "start": "concurrently \"npm run api\" \"webpack-dev-server --port 5000 --inline --config webpack.dev.js  --history-api-fallback --open chrome\"",
     "test": "jest",
     "api": "json-server --watch ./data/db.json"
   },
@@ -49,6 +49,7 @@
     "clean-webpack-plugin": "^0.1.17",
     "compression-webpack-plugin": "^1.1.2",
     "concurrency": "^0.1.4",
+    "concurrently": "^3.5.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.13.1",
     "eslint-config-airbnb": "^16.1.0",

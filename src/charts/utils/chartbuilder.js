@@ -1,6 +1,9 @@
 import * as d3 from 'd3';
 
-export default function build(node) {
+export default function build(node, data) {
+  if (_.isEmpty(data)) {
+    return node;
+  }
   const margin = {
     top: 20,
     right: 20,
@@ -27,25 +30,18 @@ export default function build(node) {
     .append('g')
     .attr('transform', `translate(${margin.left},${margin.top})`);
 
-  // Get the data
-  d3.csv('/src/utils/data.csv', (error, data) => {
-    if (error) throw error;
-    // format the data
-    data.forEach((d) => {
-      const result = d;
-      result.date = parseTime(d.date);
-      result.close = +d.close;
-    });
-    // Scale the range of the data
-    x.domain(d3.extent(data, d => d.date));
-    y.domain([0, d3.max(data, d => d.close)]);
-    // Add the valueline path.
-    svg.append('path').data([data]).attr('class', 'line').attr('d', valueline);
-    // Add the X Axis
-    svg.append('g').attr('transform', `translate(0,${height})`).call(d3.axisBottom(x));
-    // Add the Y Axis
-    svg.append('g').call(d3.axisLeft(y));
-  });
+  // format the data
+  const formattedData = data[0].map(d => ({ date: parseTime(d.date), close: +d.close }));
+
+  // Scale the range of the data
+  x.domain(d3.extent(formattedData, d => d.date));
+  y.domain([0, d3.max(formattedData, d => d.close)]);
+  // Add the valueline path.
+  svg.append('path').data([formattedData]).attr('class', 'line').attr('d', valueline);
+  // Add the X Axis
+  svg.append('g').attr('transform', `translate(0,${height})`).call(d3.axisBottom(x));
+  // Add the Y Axis
+  svg.append('g').call(d3.axisLeft(y));
 
   return svg;
 }

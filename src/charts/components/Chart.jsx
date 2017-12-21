@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { lifecycle, compose, withHandlers, shouldUpdate } from 'recompose';
+import { connect } from 'react-redux';
+import { lifecycle, compose, withHandlers } from 'recompose';
 import build from '../utils/chartbuilder';
+import { onFetch } from '../redux/';
 
 const propTypes = {
   onRef: PropTypes.func.isRequired,
@@ -23,22 +25,35 @@ const Chart = ({ onRef }) => (
   </ChartPanel>
 );
 
+const mapStateToProps = state => ({
+  data: state.chart,
+});
+
 Chart.propTypes = propTypes;
 
-export default compose(
-  shouldUpdate(() => false),
+const enhance = compose(
+  connect(mapStateToProps),
   withHandlers(() => {
     let elem = null;
     return {
       onRef: () => (ref) => {
         elem = ref;
       },
-      drawChart: () => () => build(elem),
+      drawChart: () => data => build(elem, data),
     };
   }),
   lifecycle({
+    componentWillMount() {
+      this.props.dispatch(onFetch());
+    },
     componentDidMount() {
-      this.props.drawChart();
+      this.props.drawChart(this.props.data);
+    },
+    componentWillReceiveProps(nextProps) {
+      this.props.drawChart(nextProps.data);
     },
   }),
-)(Chart);
+);
+
+export default enhance(Chart);
+
