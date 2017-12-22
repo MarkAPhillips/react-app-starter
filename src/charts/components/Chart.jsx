@@ -1,23 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { lifecycle, compose, withHandlers } from 'recompose';
+import { ChartPanel, ChartSvg } from '../styles';
 import build from '../utils/chartbuilder';
-import { onFetch } from '../redux/';
+import { onFetch, getCatalogueDataForChart } from '../redux/';
 
 const propTypes = {
   onRef: PropTypes.func.isRequired,
 };
-
-const ChartPanel = styled.div``;
-
-const ChartSvg = styled.svg`
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 2px;
-}`;
 
 const Chart = ({ onRef }) => (
   <ChartPanel>
@@ -26,7 +17,7 @@ const Chart = ({ onRef }) => (
 );
 
 const mapStateToProps = state => ({
-  data: state.chart,
+  data: getCatalogueDataForChart(state),
 });
 
 Chart.propTypes = propTypes;
@@ -45,9 +36,6 @@ const enhance = compose(
   lifecycle({
     componentWillMount() {
       this.props.dispatch(onFetch());
-    },
-    componentDidMount() {
-      this.props.drawChart(this.props.data);
     },
     componentWillReceiveProps(nextProps) {
       this.props.drawChart(nextProps.data);
