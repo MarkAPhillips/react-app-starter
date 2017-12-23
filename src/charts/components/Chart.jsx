@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { lifecycle, compose, withHandlers } from 'recompose';
 import { ChartPanel, ChartSvg } from '../styles';
-import build from '../utils/chartbuilder';
+import build from '../utils/chartBuilder';
 import { onFetch, getCatalogueDataForChart } from '../chartReducer';
 
 const propTypes = {

@@ -13,16 +13,19 @@ export default function build(node, data) {
 
   const width = 960 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
-  // parse the date / time
-  const parseTime = d3.timeParse('%d-%b-%y');
-  // set the ranges
-  const x = d3.scaleTime().range([0, width]);
-  const y = d3.scaleLinear().range([height, 0]);
-  // define the line
-  const valueline = d3.line().x(d => x(d.date)).y(d => y(d.close));
-  // append the svg object to the body of the page
-  // appends a 'group' element to 'svg'
-  // moves the 'group' element to the top left margin
+
+  // Scales
+  const xScale = d3.scaleLinear().domain(d3.extent(data[0].values, d => d.year)).range([0, width]);
+
+  const maxPopularity = _(data).map('values')
+    .flatten()
+    .map('popularity')
+    .value();
+
+  const yScale = d3.scaleLinear()
+    .domain([0, d3.max(maxPopularity)])
+    .range([height, 0]);
+
   const svg = d3
     .select(node)
     .attr('width', width + margin.left + margin.right)
@@ -30,18 +33,58 @@ export default function build(node, data) {
     .append('g')
     .attr('transform', `translate(${margin.left},${margin.top})`);
 
-  // format the data
-  const formattedData = data[0].map(d => ({ date: parseTime(d.date), close: +d.close }));
+  const line = d3.line().x(d => xScale(d.year)).y(d => yScale(d.popularity));
 
-  // Scale the range of the data
-  x.domain(d3.extent(formattedData, d => d.date));
-  y.domain([0, d3.max(formattedData, d => d.close)]);
-  // Add the valueline path.
-  svg.append('path').data([formattedData]).attr('class', 'line').attr('d', valueline);
-  // Add the X Axis
-  svg.append('g').attr('transform', `translate(0,${height})`).call(d3.axisBottom(x));
-  // Add the Y Axis
-  svg.append('g').call(d3.axisLeft(y));
+  const lines = svg.append('g').attr('class', 'lines');
+
+  // gridlines in x axis function
+
+  function buildXgridlines() {
+    return d3.axisBottom(xScale).ticks(4);
+  }
+
+  // gridlines in y axis function
+  function buildYgridlines() {
+    return d3.axisLeft(yScale);
+  }
+
+  lines
+    .selectAll('.line-group')
+    .data(data)
+    .enter()
+    .append('g')
+    .attr('class', 'line-group')
+    .append('path')
+    .attr('class', 'line')
+    .attr('d', d => line(d.values))
+    .style('stroke', d => `rgb(${d.rgb.join(',')})`);
+
+  const xAxis = d3.axisBottom(xScale).ticks(4).tickFormat(d3.format('d'));
+  const yAxis = d3.axisLeft(yScale);
+
+  // add the X gridlines
+  svg.append('g')
+    .attr('class', 'grid')
+    .attr('transform', `translate(0,${height})`)
+    .call(buildXgridlines()
+      .tickSize(-height)
+      .tickFormat(''));
+
+  // add the Y gridlines
+  svg.append('g')
+    .attr('class', 'grid')
+    .call(buildYgridlines()
+      .tickSize(-width)
+      .tickFormat(''));
+      
+  svg.append('g')
+    .attr('class', 'x axis')
+    .attr('transform', `translate(0, ${height})`)
+    .call(xAxis);
+
+  svg.append('g')
+    .attr('class', 'y axis')
+    .call(yAxis);
 
   return svg;
 }
