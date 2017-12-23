@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import getCatalogue from '../../common/services/catalogueService';
-import { ADD } from '../../common/redux/error';
-import API from '../../common/constants';
+import getCatalogue from '../common/services/catalogueService';
+import { ADD } from '../common/redux/error';
+import API from '../common/constants';
 
 const LOAD_SUCCESS = 'react-app-starter/chart/LOAD_SUCCESS';
 const LOAD_REQUEST = 'react-app-starter/chart/LOAD_REQUEST';
