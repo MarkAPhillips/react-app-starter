@@ -76,7 +76,6 @@ export default function build(node, data) {
     .call(buildYgridlines()
       .tickSize(-width)
       .tickFormat(''));
-      
   svg.append('g')
     .attr('class', 'x axis')
     .attr('transform', `translate(0, ${height})`)

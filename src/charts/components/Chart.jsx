@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { lifecycle, compose, withHandlers } from 'recompose';
 import { ChartPanel, ChartSvg } from '../styles';
+import { Header, Section } from '../../common/styles/components';
 import build from '../utils/chartBuilder';
 import { onFetch, getCatalogueDataForChart } from '../chartReducer';
 
@@ -11,9 +12,12 @@ const propTypes = {
 };
 
 const Chart = ({ onRef }) => (
-  <ChartPanel>
-    <ChartSvg innerRef={onRef} />
-  </ChartPanel>
+  <Section>
+    <Header>D3 Multiple line chart example</Header>
+    <ChartPanel>
+      <ChartSvg innerRef={onRef} />
+    </ChartPanel>
+  </Section>
 );
 
 const mapStateToProps = state => ({
