@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { error } from './errorReducer';
-import { chart } from '../charts/chartReducer';
+import { catalogue } from '../catalogue/catalogueReducer';
 
 const rootReducer = combineReducers({
-  chart, error,
+  catalogue, error,
 });
 
 export default rootReducer;

@@ -5,7 +5,7 @@ import { lifecycle, compose, withHandlers } from 'recompose';
 import { ChartPanel, ChartSvg } from '../styles';
 import { Header, Section } from '../../common/styles/components';
 import build from '../utils/chartBuilder';
-import { onFetch, getCatalogueDataForChart } from '../chartReducer';
+import { onFetch, getCatalogueDataForChart } from '../../catalogue/catalogueReducer';
 
 const propTypes = {
   onRef: PropTypes.func.isRequired,
