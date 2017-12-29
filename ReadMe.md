@@ -6,7 +6,7 @@ CSS using styled components.
 
 Tests using Jest.
 
-## Prerequesites
+## Prerequisites
 
 Windows users:
 
