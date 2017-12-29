@@ -5,7 +5,7 @@ export const Main = styled.main`
 `;
 
 export const Header = styled.h1`
-    font-size: 1.5em
+    font-size: 1.5em;
 `;
 
 export const Section = styled.section``;

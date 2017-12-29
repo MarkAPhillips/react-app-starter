@@ -81,9 +81,25 @@ export default function build(node, data) {
     .attr('transform', `translate(0, ${height})`)
     .call(xAxis);
 
+  svg.append('text')
+    .attr('transform', `translate(${width / 2} ,${
+      height + margin.top + 5})`)
+    .style('text-anchor', 'middle')
+    .style('font-size', '0.8em')
+    .text('Year');
+
   svg.append('g')
     .attr('class', 'y axis')
     .call(yAxis);
+
+  svg.append('text')
+    .attr('transform', 'rotate(-90)')
+    .attr('y', 0 - margin.left)
+    .attr('x', 0 - (height / 2))
+    .attr('dy', '1em')
+    .style('text-anchor', 'middle')
+    .style('font-size', '0.8em')
+    .text('Popularity');
 
   return svg;
 }
