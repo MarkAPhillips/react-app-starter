@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import buildPredictionData from './predictionHandler';
 
 export default function build(node, data) {
   if (_.isEmpty(data)) {
@@ -15,15 +16,19 @@ export default function build(node, data) {
   const height = 500 - margin.top - margin.bottom;
 
   // Scales
-  const xScale = d3.scaleLinear().domain(d3.extent(data[0].values, d => d.year)).range([0, width]);
+  const yearRange = d3.extent(data[0].values, d => d.year);
+  /** Add additional year to handle prediction */
+  yearRange[1] += 1;
+  const xScale = d3.scaleLinear().domain(yearRange).range([0, width]);
 
-  const maxPopularity = _(data).map('values')
+  /** Max popularity will be based on the highest prediction */
+  const maxPopularity = _(data)
+    .map('prediction')
     .flatten()
-    .map('popularity')
-    .value();
+    .maxBy('high').high;
 
   const yScale = d3.scaleLinear()
-    .domain([0, d3.max(maxPopularity)])
+    .domain([0, maxPopularity])
     .range([height, 0]);
 
   const svg = d3
@@ -47,6 +52,10 @@ export default function build(node, data) {
   function buildYgridlines() {
     return d3.axisLeft(yScale);
   }
+
+  const lineFunction = d3.line()
+    .x(d => xScale(d.x))
+    .y(d => yScale(d.y));
 
   lines
     .selectAll('.line-group')
@@ -101,5 +110,15 @@ export default function build(node, data) {
     .style('font-size', '0.8em')
     .text('Popularity');
 
+  /** Build prediction data */
+  const lineData = buildPredictionData(data);
+  console.log(lineData);
+  lineData.forEach((item) => {
+    svg.append('path')
+      .attr('d', lineFunction(item.coordinates))
+      .attr('stroke', `rgb(${item.rgb.join(',')})`)
+      .attr('stroke-width', 1)
+      .attr('fill', 'none');
+  });
   return svg;
 }
