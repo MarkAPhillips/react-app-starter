@@ -112,13 +112,15 @@ export default function build(node, data) {
 
   /** Build prediction data */
   const lineData = buildPredictionData(data);
-  console.log(lineData);
+
+  const predictionGroup = svg.append('g')
+    .attr('class', 'prediction');
   lineData.forEach((item) => {
-    svg.append('path')
+    predictionGroup.append('path')
       .attr('d', lineFunction(item.coordinates))
       .attr('stroke', `rgb(${item.rgb.join(',')})`)
       .attr('stroke-width', 1)
-      .attr('fill', 'none');
+      .attr('fill', `rgb(${item.rgb.join(',')})`);
   });
   return svg;
 }

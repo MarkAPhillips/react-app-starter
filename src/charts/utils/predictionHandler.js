@@ -2,7 +2,7 @@ function getCoords(prediction, values) {
   const coords = [];
   const startCoords = _.maxBy(values.map(d => ({ x: d.year, y: d.popularity })), 'x');
   const x = startCoords.x + 1;
-  coords.push(startCoords, { x, y: prediction.high }, startCoords, { x, y: prediction.low });
+  coords.push(startCoords, { x, y: prediction.high }, { x, y: prediction.low });
   return coords;
 }
 

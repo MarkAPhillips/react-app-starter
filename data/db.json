@@ -4,13 +4,13 @@
     "dominant_colors": [
       {
         "prediction": {
-          "high": 0.06,
-          "low": 0.03
+          "high": 0.08,
+          "low": 0.06
         },
         "rgb": [
-          255,
-          1,
-          1
+          0,
+          0,
+          255
         ],
         "values": [
           {
@@ -27,7 +27,7 @@
           },
           {
             "year": 2017,
-            "popularity": 0.05
+            "popularity": 0.07
           }
         ]
       },
@@ -37,9 +37,9 @@
           "low": 0.07
         },
         "rgb": [
-          240,
+          255,
           0,
-          130
+          0
         ],
         "values": [
           {

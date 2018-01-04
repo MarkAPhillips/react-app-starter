@@ -21,4 +21,10 @@ export const ChartSvg = styled.svg`
 .grid path {
   stroke-width: 0;
 }
+.prediction {
+  isolation: isolate; 
+}
+.prediction path { 
+  mix-blend-mode: hue; 
+}  
 `;
