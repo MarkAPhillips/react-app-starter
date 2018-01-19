@@ -8,7 +8,8 @@
         "jest"
     ],
     "globals": {
-        "_": true
+        "_": true,
+        "cy": true
     },
     "settings": {
       "import/resolver": {
