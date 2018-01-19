@@ -1,9 +1,9 @@
 import axios from 'axios';
 import API from '../constants';
+import build from './queryStringParameterBuilder';
 
 function validateStatus(status) {
-  return status >= API.STATUS_CODES.OK
-    && status < API.STATUS_CODES.INTERNAL_SERVER_ERROR;
+  return status >= API.STATUS_CODES.OK && status < API.BAD_REQUEST;
 }
 
 const defaultHeader = {
@@ -19,20 +19,14 @@ function createInstance(headers = defaultHeader) {
   });
 }
 
-function buildQueryStringParams(params) {
-  if (params == null) return '';
-  const queryString = Object.keys(params).map(key => `${key}=${encodeURIComponent(params[key])}`).join('&');
-  return `?${queryString}`;
-}
-
 /** GET method - returns a promise */
 export function get(resource, params, headers) {
-  const queryStringParams = buildQueryStringParams(params);
+  const queryStringParams = build(params);
   return createInstance(headers).get(`${resource}${queryStringParams}`);
 }
 
 /** POST method returns a promise */
 export function post(resource, data, params, headers) {
-  const queryStringParams = buildQueryStringParams(params);
+  const queryStringParams = build(params);
   return createInstance(headers).post(`${resource}${queryStringParams}`, data);
 }

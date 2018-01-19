@@ -9,11 +9,5 @@
     ],
     "globals": {
         "_": true
-    },
-    "rules": {
-        "linebreak-style": [
-            "error",
-            "windows"
-        ]
     }
 }

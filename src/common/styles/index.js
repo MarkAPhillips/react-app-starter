@@ -7,7 +7,7 @@ import externalFont from '../assets/fonts/OpenSans-Regular-webfont.woff';
 
 export default () => injectGlobal`
   ${styledNormalize}
- 
+
   @font-face {
     font-family: ${fonts.family};
     src: url(${externalFont})
