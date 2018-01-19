@@ -13,6 +13,7 @@
     "test": "jest --no-cache",
     "test:dev": "jest --watchAll",
     "test:coverage": "jest --coverage",
+    "cypress:open": "cypress open",
     "api": "json-server --watch ./data/db.json"
   },
   "repository": {
@@ -59,6 +60,7 @@
     "compression-webpack-plugin": "^1.1.2",
     "concurrently": "^3.5.1",
     "css-loader": "^0.28.7",
+    "cypress": "^1.4.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.13.1",
