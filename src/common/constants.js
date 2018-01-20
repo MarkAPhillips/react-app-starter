@@ -1,4 +1,5 @@
 const API = {
+  APP_ID: 'React Starter App',
   ROOT_URL: 'http://localhost:3000/',
   STATUS_CODES: {
     OK: 200,

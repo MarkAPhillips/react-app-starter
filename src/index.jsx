@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
-import App from './common/components/';
+import App from './common/components/App';
 import baseStyles from './common/styles/';
 import rootReducer from './common/rootReducer';
 
