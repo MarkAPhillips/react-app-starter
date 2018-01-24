@@ -1,24 +1,33 @@
 {
-    "extends": "airbnb",
-    "env": {
-        "browser": true,
-        "jest/globals": true
-    },
-    "plugins": [
-        "jest"
-    ],
-    "globals": {
-        "_": true,
-        "cy": true
-    },
-    "settings": {
-      "import/resolver": {
-        "webpack": {
-          "config": "webpack.dev.js"
-        }
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "plugins": [
+    "jest"
+  ],
+  "globals": {
+    "_": true,
+    "cy": true
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.dev.js"
       }
-    },
-    "rules": {
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off"
+  }
 }

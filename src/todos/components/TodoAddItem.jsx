@@ -1,13 +1,6 @@
-// import AppConstants from '../../common/constants';
+import React from 'react';
+import TodoAddItemPanel from '../styles';
+import { Input } from '../../common/styles/components';
 
-// Actions
+export const TodoAddItem = () => <TodoAddItemPanel><Input type="text" /></TodoAddItemPanel>;
 
-// const ADD = `${AppConstants.APP_ID}/todos/ADD`;
-// const COMPLETE = `${AppConstants.APP_ID}/todos/COMPLETE`;
-// const LOAD = `${AppConstants.APP_ID}/todos/LOAD`;
-
-// Reducer
-
-// Action Creator
-
-// Selector
