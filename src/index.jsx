@@ -1,22 +1,27 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
 import App from './App';
+import { sagaInit } from './sagaInit';
 import baseStyles from './common/styles/';
 import rootReducer from './common/rootReducer';
 
 /* load base styles */
 baseStyles();
 
-const middleware = [thunk];
+const sagaMiddleware = createSagaMiddleware();
+
+const middleware = [sagaMiddleware];
 const MOUNT_NODE = document.getElementById('root');
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(...middleware)));
 /* eslint-enable */
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(...middleware)));
+sagaInit(sagaMiddleware);
 
 render(
   <Provider store={store}>
