@@ -8,6 +8,10 @@ Unit tests using Jest.
 
 e2e tests using Cypress.
 
+CI provided by circleci.com
+
+[![CircleCI](https://circleci.com/gh/MarkAPhillips/react-app-starter/tree/master.svg?style=svg)](https://circleci.com/gh/MarkAPhillips/react-app-starter/tree/master)
+
 ## Prerequisites
 
 Windows users:
