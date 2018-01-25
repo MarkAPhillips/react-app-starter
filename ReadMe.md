@@ -1,3 +1,11 @@
+# React App Starter
+
+<center>
+
+[![CircleCI](https://circleci.com/gh/MarkAPhillips/react-app-starter/tree/master.svg?style=svg)](https://circleci.com/gh/MarkAPhillips/react-app-starter/tree/master)
+
+</center>
+
 ## Introduction
 
 React starter application using Webpack, Redux, Redux Sagas, Recompose, and Reselect.
@@ -9,8 +17,6 @@ Unit tests using Jest.
 e2e tests using Cypress.
 
 CI provided by circleci.com
-
-[![CircleCI](https://circleci.com/gh/MarkAPhillips/react-app-starter/tree/master.svg?style=svg)](https://circleci.com/gh/MarkAPhillips/react-app-starter/tree/master)
 
 ## Prerequisites
 
@@ -26,13 +32,13 @@ Windows users:
 
 ``` npm start ```
 
-## Build
+## CI Build
 
 ```npm run build```
 
 ## Unit Tests
 
-Run tests not in watch mode:
+Run tests:
 
 ```npm test```
 
