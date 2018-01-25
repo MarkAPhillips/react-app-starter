@@ -28,6 +28,7 @@
   "homepage": "https://github.com/MarkAPhillips/react-app-starter#readme",
   "jest": {
     "verbose": true,
+    "automock": false,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],
