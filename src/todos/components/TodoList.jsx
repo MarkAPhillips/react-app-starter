@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const TodoList = () => <TodoList />;
+export const TodoList = () => <div />;

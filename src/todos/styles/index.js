@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
-const TodoAddItemPanel = styled.div``;
+export const TodoContainerPanel = styled.section``;
 
-export default TodoAddItemPanel;
+export const TodoAddItemPanel = styled.div``;
+

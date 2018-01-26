@@ -13,7 +13,7 @@
     "test": "jest --no-cache",
     "test:dev": "jest --watchAll",
     "test:coverage": "jest --coverage",
-    "cypress:open": "cypress open",
+    "e2e": "cypress open",
     "api": "json-server --watch ./data/db.json"
   },
   "repository": {
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "babel-regenerator-runtime": "^6.5.0",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
@@ -47,6 +48,8 @@
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.2.0",
+    "regenerator-runtime": "^0.11.1",
     "reselect": "^3.0.1",
     "styled-components": "^2.4.0",
     "styled-normalize": "^2.3.0"

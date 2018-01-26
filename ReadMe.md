@@ -52,4 +52,4 @@ Run tests with coverage:
 
 ## e2e Tests
 
-``` npm run cypress:open ```
+``` npm run e2e ```
