@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
 import App from './App';
@@ -14,7 +13,7 @@ baseStyles();
 
 const sagaMiddleware = createSagaMiddleware();
 
-const middleware = [thunk, sagaMiddleware];
+const middleware = [sagaMiddleware];
 const MOUNT_NODE = document.getElementById('root');
 
 /* eslint-disable no-underscore-dangle */
