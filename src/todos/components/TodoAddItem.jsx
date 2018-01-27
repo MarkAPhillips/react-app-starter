@@ -1,6 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { TodoAddItemPanel } from '../styles';
 import { Input, Button } from '../../common/styles/components';
 
+
+const propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
 export const TodoAddItem =
-    () => <TodoAddItemPanel><Input type="text" /><Button>Add</Button></TodoAddItemPanel>;
+    ({ onClick }) =>
+      (
+        <TodoAddItemPanel>
+          <Input type="text" />
+          <Button onClick={onClick}>Add</Button>
+        </TodoAddItemPanel>);
+
+TodoAddItem.propTypes = propTypes;

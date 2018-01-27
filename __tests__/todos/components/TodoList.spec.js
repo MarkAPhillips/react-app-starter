@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { TodoList } from '../../../src/todos/components/';
 
-describe('TodoList renders', () => {
+describe('TodoList specs', () => {
   it('should render the component ', () => {
-    const component = shallow(<TodoList />);
-    expect(component.exists()).toEqual(true);
+    const wrapper = shallow(<TodoList />);
+    expect(wrapper.exists()).toEqual(true);
   });
 });

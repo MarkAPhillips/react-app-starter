@@ -1,10 +1,17 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { TodoAddItem } from '../../../src/todos/components';
 
-describe('TodoAddItem renders', () => {
+describe('TodoAddItem specs', () => {
   it('should render the component ', () => {
-    const component = shallow(<TodoAddItem />);
-    expect(component.exists()).toEqual(true);
+    const wrapper = shallow(<TodoAddItem />);
+    expect(wrapper.exists()).toEqual(true);
+  });
+
+  it('should call the onClick prop when clicked ', () => {
+    const onClickMock = jest.fn();
+    const wrapper = mount(<TodoAddItem onClick={onClickMock} />);
+    wrapper.find('button').simulate('click');
+    expect(onClickMock).toBeCalled();
   });
 });

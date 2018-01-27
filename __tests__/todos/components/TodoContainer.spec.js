@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { TodoContainer } from '../../../src/todos/components/';
 
-describe('TodoContainer renders', () => {
+describe('TodoContainer specs', () => {
   const mockStore = configureMockStore();
   const initialState = {};
   let store;
