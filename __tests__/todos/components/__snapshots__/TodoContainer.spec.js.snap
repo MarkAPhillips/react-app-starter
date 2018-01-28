@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoContainer specs should render the component snapshot correctly 1`] = `
+<section
+  className="styles__TodoContainerPanel-iiaUax cRMZtB"
+>
+  <div
+    className="styles__TodoAddItemPanel-YuPvf jBNYNs"
+  >
+    <input
+      className="components__Input-bKEkoF cjodGZ"
+      type="text"
+    />
+    <button
+      className="components__Button-gRFNiA fRSazn"
+      onClick={undefined}
+    >
+      Add
+    </button>
+  </div>
+</section>
+`;

@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { TodoContainer } from '../../../src/todos/components/';
+import { componentSnapshotShouldMatch } from '../../testUtils';
 
 describe('TodoContainer specs', () => {
   const mockStore = configureMockStore();
@@ -17,5 +18,9 @@ describe('TodoContainer specs', () => {
 
   it('should render the component ', () => {
     expect(wrapper.find(TodoContainer).length).toEqual(1);
+  });
+
+  it('should render the component snapshot correctly', () => {
+    componentSnapshotShouldMatch(<Provider store={store}><TodoContainer /></Provider>);
   });
 });
