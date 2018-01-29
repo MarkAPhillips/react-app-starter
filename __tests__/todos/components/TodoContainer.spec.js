@@ -8,12 +8,14 @@ import { componentSnapshotShouldMatch } from '../../testUtils';
 describe('TodoContainer specs', () => {
   const mockStore = configureMockStore();
   const initialState = {};
+  let component;
   let store;
   let wrapper;
 
   beforeEach(() => {
     store = mockStore(initialState);
-    wrapper = mount(<Provider store={store}><TodoContainer /></Provider>);
+    component = <Provider store={store}><TodoContainer /></Provider>;
+    wrapper = mount(component);
   });
 
   it('should render the component ', () => {
@@ -21,6 +23,6 @@ describe('TodoContainer specs', () => {
   });
 
   it('should render the component snapshot correctly', () => {
-    componentSnapshotShouldMatch(<Provider store={store}><TodoContainer /></Provider>);
+    componentSnapshotShouldMatch(component);
   });
 });
