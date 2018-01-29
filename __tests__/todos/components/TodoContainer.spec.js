@@ -1,9 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
+import 'jest-styled-components';
 import configureMockStore from 'redux-mock-store';
 import { TodoContainer } from '../../../src/todos/components/';
 import { componentSnapshotShouldMatch } from '../../testUtils';
+
 
 describe('TodoContainer specs', () => {
   const mockStore = configureMockStore();

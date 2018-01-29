@@ -2,18 +2,18 @@
 
 exports[`TodoContainer specs should render the component snapshot correctly 1`] = `
 <section
-  className="styles__TodoContainerPanel-iiaUax cRMZtB"
+  className=""
 >
   <div
-    className="styles__TodoAddItemPanel-YuPvf jBNYNs"
+    className=""
   >
     <input
-      className="components__Input-bKEkoF cjodGZ"
+      className=""
       type="text"
     />
     <button
-      className="components__Button-gRFNiA fRSazn"
-      onClick={undefined}
+      className=""
+      onClick={[Function]}
     >
       Add
     </button>
