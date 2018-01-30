@@ -9,6 +9,8 @@ exports[`TodoContainer specs should render the component snapshot correctly 1`] 
   >
     <input
       className=""
+      id="input-add-todo"
+      onChange={[Function]}
       type="text"
     />
     <button

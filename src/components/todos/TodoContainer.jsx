@@ -1,23 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { compose } from 'recompose';
+import { compose, withState, withHandlers } from 'recompose';
 import { addTodoItem } from '../../reducers/todoReducer';
 import { TodoContainerPanel } from './styles';
 import { TodoAddItem } from './';
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  onClick: item => dispatch(addTodoItem(item)),
-});
+const enhance = compose(
+  connect(),
+  withState('inputfield', 'setInputField', ''),
+  withHandlers({
+    onClick: props => () => {
+      props.dispatch(addTodoItem(props.inputfield));
+    },
+    onChange: props => evt => props.setInputField(evt.target.value),
+  }),
+);
 
-const enhance = compose(connect(null, mapDispatchToProps));
-
-const component = ({ onClick }) =>
-  <TodoContainerPanel><TodoAddItem onClick={onClick} /></TodoContainerPanel>;
+const component = ({ onClick, onChange }) => (
+  <TodoContainerPanel><TodoAddItem onClick={onClick} onChange={onChange} /></TodoContainerPanel>
+);
 
 component.propTypes = propTypes;
 

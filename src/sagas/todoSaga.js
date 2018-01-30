@@ -1,4 +1,7 @@
-/* eslint-disable */
+import { take } from 'redux-saga/effects';
+import { ADD } from '../reducers/todoReducer';
+
 export function* todoSaga() {
-  console.log('Todo Saga called');
+  const { todo } = yield take(ADD);
+  console.log('Saga output', todo);
 }
