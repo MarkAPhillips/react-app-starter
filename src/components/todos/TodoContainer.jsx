@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { addTodoItem } from '../todoReducer';
-import { TodoContainerPanel } from '../styles';
+import { addTodoItem } from '../../reducers/todoReducer';
+import { TodoContainerPanel } from './styles';
 import { TodoAddItem } from './';
 
 const propTypes = {

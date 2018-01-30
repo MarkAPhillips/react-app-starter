@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import 'jest-styled-components';
 import configureMockStore from 'redux-mock-store';
-import { TodoContainer } from '../../../src/todos/components/';
+import { TodoContainer } from '../../../src/components/todos';
 import { componentSnapshotShouldMatch } from '../../testUtils';
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { TodoAddItem } from '../../../src/todos/components';
+import { TodoAddItem } from '../../../src/components/todos';
 
 describe('TodoAddItem specs', () => {
   it('should render the component ', () => {

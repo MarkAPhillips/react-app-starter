@@ -1,6 +1,6 @@
 import uuidv4 from 'uuid/v4';
-import AppConstants from '../common/constants';
-import { actionCreator } from '../common/actionCreator';
+import AppConstants from '../constants';
+import { actionCreator } from './actionCreator';
 
 // Actions
 export const ADD = `${AppConstants.APP_ID}/todos/ADD`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TodoAddItemPanel } from '../styles';
-import { Input, Button } from '../../common/styles/components';
+import { TodoAddItemPanel } from './styles';
+import { Input, Button } from '../../assets/styles/components';
 
 
 const propTypes = {

@@ -1,4 +1,4 @@
-import build from '../../../src/common/services/queryStringParameterBuilder';
+import build from '../../src/services/queryStringParameterBuilder';
 
 const noop = () => {};
 

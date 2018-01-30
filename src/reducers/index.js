@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import error from './errorReducer';
-import todos from '../todos/todoReducer';
+import todos from './todoReducer';
 
 const rootReducer = combineReducers({
   error,

@@ -3,7 +3,7 @@ import { injectGlobal } from 'styled-components';
 import 'font-awesome/css/font-awesome.min.css';
 import { fonts, colours } from './variables';
 
-import externalFont from '../assets/fonts/OpenSans-Regular-webfont.woff';
+import externalFont from '../../assets/fonts/OpenSans-Regular-webfont.woff';
 
 export default () => injectGlobal`
   ${styledNormalize}

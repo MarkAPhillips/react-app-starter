@@ -1,4 +1,4 @@
-import { actionCreator } from '../../src/common/actionCreator';
+import { actionCreator } from '../../src/reducers/actionCreator';
 
 describe('Action creator specs', () => {
   it('should return a function', () => {

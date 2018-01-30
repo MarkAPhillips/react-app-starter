@@ -1,5 +1,5 @@
 import uuidv4 from 'uuid/v4';
-import todos, { ADD } from '../../src/todos/todoReducer';
+import todos, { ADD } from '../../src/reducers/todoReducer';
 
 // TODO: Review this process for mocking of the uuid module
 // Revew how to mock in globally using manual mocks
