@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
 import App from './App';
 import { sagaInit } from './sagaInit';
-import baseStyles from './common/styles/';
+import baseStyles from './assets/styles/';
 import rootReducer from './reducers/';
 
 /* load base styles */

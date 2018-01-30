@@ -1,4 +1,4 @@
-import AppConstants from '../common/constants';
+import AppConstants from '../constants';
 
 // Actions
 const ADD = `${AppConstants.APP_ID}/error/ADD`;
