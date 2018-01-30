@@ -3,7 +3,7 @@ import API from '../constants';
 import build from './queryStringParameterBuilder';
 
 function validateStatus(status) {
-  return status >= API.STATUS_CODES.OK && status < API.BAD_REQUEST;
+  return status >= API.STATUS_CODES.OK && status < API.STATUS_CODES.BAD_REQUEST;
 }
 
 const defaultHeader = {

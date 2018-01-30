@@ -20,7 +20,6 @@ describe('Todo reducer specs', () => {
     state = todos(initialState, {
       type: ADD_REQUEST,
     });
-
     expect(state).toEqual(initialState);
   });
 
