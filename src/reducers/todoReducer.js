@@ -10,7 +10,6 @@ const initialState = { byId: [], byHash: {} };
 
 export default function todos(state = initialState, action) {
   let id;
-  console.log('Action', action);
   switch (action.type) {
     case ADD:
       id = uuidv4();
