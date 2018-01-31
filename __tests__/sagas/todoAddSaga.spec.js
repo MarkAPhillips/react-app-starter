@@ -1,7 +1,7 @@
-import { take, call } from 'redux-saga/effects';
+import { take, call, put } from 'redux-saga/effects';
 import { todoAddSaga } from '../../src/sagas';
 import { createTodoItem } from '../../src/services/todoService';
-import { ADD_REQUEST } from '../../src/reducers/todoReducer';
+import { ADD_REQUEST, setTodoItem } from '../../src/reducers/todoReducer';
 import build from '../../src/utils/todoModelBuilder';
 
 describe('TodoAddSaga specs', () => {
@@ -22,10 +22,17 @@ describe('TodoAddSaga specs', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should call the createTodoItem function with the correct arguments', () => {
+  it('should call the createTodoItem api call with the correct arguments', () => {
     const model = { id: 1, item: 'Write a unit test', completed: false };
     expected = call(createTodoItem, model);
     result = gen.next(model).value;
+    expect(result).toEqual(expected);
+  });
+
+  it('should yield action SetTodoItem', () => {
+    const response = { data: { id: 1, item: 'Write a unit test', completed: false } };
+    expected = put(setTodoItem(response.data));
+    result = gen.next(response).value;
     expect(result).toEqual(expected);
   });
 });
