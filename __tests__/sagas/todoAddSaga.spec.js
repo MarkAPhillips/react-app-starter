@@ -1,6 +1,6 @@
 import { take, call } from 'redux-saga/effects';
 import { todoAddSaga } from '../../src/sagas';
-// import { createTodoItem } from '../../src/services/todoService';
+import { createTodoItem } from '../../src/services/todoService';
 import { ADD_REQUEST } from '../../src/reducers/todoReducer';
 import build from '../../src/utils/todoModelBuilder';
 
@@ -15,10 +15,17 @@ describe('TodoAddSaga specs', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should call the build model with the correct arguments', () => {
-    const todo = 'Write unit test';
+  it('should call the build model function with the correct arguments', () => {
+    const todo = 'Write a unit test';
     expected = call(build, todo);
     result = gen.next({ todo }).value;
+    expect(result).toEqual(expected);
+  });
+
+  it('should call the createTodoItem function with the correct arguments', () => {
+    const model = { id: 1, item: 'Write a unit test', completed: false };
+    expected = call(createTodoItem, model);
+    result = gen.next(model).value;
     expect(result).toEqual(expected);
   });
 });
