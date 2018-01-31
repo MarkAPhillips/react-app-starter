@@ -1,11 +1,11 @@
 import { take, call, put } from 'redux-saga/effects';
-import { todoAddSaga } from '../../src/sagas';
+import { createTodoSaga } from '../../src/sagas';
 import { createTodoItem } from '../../src/services/todoService';
 import { ADD_REQUEST, setTodoItem } from '../../src/reducers/todoReducer';
 import build from '../../src/utils/todoModelBuilder';
 
-describe('TodoAddSaga specs', () => {
-  const gen = todoAddSaga();
+describe('CreateTodoSaga specs', () => {
+  const gen = createTodoSaga();
   let expected;
   let result;
 
