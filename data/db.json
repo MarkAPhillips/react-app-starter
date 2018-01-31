@@ -1,3 +1,9 @@
 {
-    "todos" : []
+  "todos": [
+    {
+      "id": "c518f50c-ff3e-4830-a1cd-330190a7b73b",
+      "item": "Test",
+      "completed": false
+    }
+  ]
 }

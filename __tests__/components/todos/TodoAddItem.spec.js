@@ -14,4 +14,12 @@ describe('TodoAddItem specs', () => {
     wrapper.find('button').simulate('click');
     expect(onClickMock).toBeCalled();
   });
+
+
+  it('should call the onChange prop when text is inputted', () => {
+    const onChangeMock = jest.fn();
+    const wrapper = mount(<TodoAddItem onChange={onChangeMock} />);
+    wrapper.find('input').simulate('change', { target: { value: 'Write a unit test' } });
+    expect(onChangeMock).toBeCalled();
+  });
 });

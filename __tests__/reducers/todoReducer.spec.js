@@ -1,11 +1,4 @@
-// import uuidv4 from 'uuid/v4';
 import todos, { ADD_REQUEST, ADD_SUCCESS } from '../../src/reducers/todoReducer';
-
-// TODO: Review this process for mocking of the uuid module
-// Revew how to mock in globally using manual mocks
-
-// jest.mock('uuid/v4');
-// uuidv4.mockImplementation(() => 1);
 
 describe('Todo reducer specs', () => {
   let state;
