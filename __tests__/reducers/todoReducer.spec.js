@@ -1,8 +1,8 @@
-import todos, { ADD_REQUEST, ADD_SUCCESS } from '../../src/reducers/todoReducer';
+import todos, { ADD_REQUEST, ADD_SUCCESS, LOAD_SUCCESS } from '../../src/reducers/todoReducer';
 
 describe('Todo reducer specs', () => {
   let state;
-  const initialState = { byId: [], byHash: {} };
+  const initialState = { list: {} };
 
   it('should return the initial state', () => {
     state = todos(undefined, {});
@@ -21,7 +21,22 @@ describe('Todo reducer specs', () => {
       type: ADD_SUCCESS,
       todo: { id: 1, item: 'Write a unit test', completed: false },
     });
-    const expected = { byId: [1], byHash: { 1: { item: 'Write a unit test', completed: false } } };
+    const expected = { list: { 1: { id: 1, item: 'Write a unit test', completed: false } } };
+    expect(state).toEqual(expected);
+  });
+
+  it('should handle LOAD_SUCCESS', () => {
+    state = todos(initialState, {
+      type: LOAD_SUCCESS,
+      todos: [{ id: 1, item: 'Write a unit test', completed: true },
+        { id: 2, item: 'Find a job', completed: false }],
+    });
+    const expected = {
+      list: {
+        1: { id: 1, item: 'Write a unit test', completed: true },
+        2: { id: 2, item: 'Find a job', completed: false },
+      },
+    };
     expect(state).toEqual(expected);
   });
 });
