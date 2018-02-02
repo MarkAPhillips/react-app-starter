@@ -1,9 +1,9 @@
 import { take } from 'redux-saga/effects';
-import { getTodosSaga } from '../../src/sagas';
+import { fetchTodosSaga } from '../../src/sagas';
 import { LOAD_REQUEST } from '../../src/reducers/todoReducer';
 
-describe('GetTodosSaga specs', () => {
-  const gen = getTodosSaga();
+describe('FetchtodosSaga specs', () => {
+  const gen = fetchTodosSaga();
   let expected;
   let result;
 

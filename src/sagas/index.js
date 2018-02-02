@@ -1,2 +1,2 @@
 export { createTodoSaga } from './createTodoSaga';
-export { getTodosSaga } from './getTodosSaga';
+export { fetchTodosSaga } from './fetchTodosSaga';
