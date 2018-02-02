@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose, withState, withHandlers, lifecycle } from 'recompose';
-import { addTodoItem, getTodoItems } from '../../reducers/todosReducer';
+import { addTodoItem, getTodoItems, todosSelector } from '../../reducers/todosReducer';
 import { TodoContainerPanel } from './styles';
 import { TodoAddItem, TodoList } from './';
 
@@ -19,7 +19,7 @@ const propTypes = {
 };
 
 const mapStateToProps = state => ({
-  todos: state.todos.list,
+  todos: todosSelector(state),
 });
 
 const enhance = compose(

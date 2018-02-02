@@ -6,10 +6,13 @@ import configureMockStore from 'redux-mock-store';
 import { TodoContainer } from '../../../src/components/todos';
 import { componentSnapshotShouldMatch } from '../../testUtils';
 
-
 describe('TodoContainer specs', () => {
   const mockStore = configureMockStore();
-  const initialState = {};
+  const initialState = {
+    todos: {
+      list: {},
+    },
+  };
   let component;
   let store;
   let wrapper;

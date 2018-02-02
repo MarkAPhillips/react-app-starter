@@ -40,3 +40,4 @@ export const getTodoItems = actionCreator(LOAD_REQUEST);
 export const setTodoItems = actionCreator(LOAD_SUCCESS, 'todos');
 
 // Selectors
+export const todosSelector = state => state.todos.list;
