@@ -1,5 +1,5 @@
 import { take, call, put } from 'redux-saga/effects';
-import { ADD_REQUEST, setTodoItem } from '../reducers/todoReducer';
+import { ADD_REQUEST, setTodoItem } from '../reducers/todosReducer';
 import { createTodoItem } from '../services/todoService';
 import build from '../utils/todoModelBuilder';
 

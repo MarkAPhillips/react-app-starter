@@ -1,7 +1,7 @@
 import { take, call, put } from 'redux-saga/effects';
 import { createTodoSaga } from '../../src/sagas';
 import { createTodoItem } from '../../src/services/todoService';
-import { ADD_REQUEST, setTodoItem } from '../../src/reducers/todoReducer';
+import { ADD_REQUEST, setTodoItem } from '../../src/reducers/todosReducer';
 import build from '../../src/utils/todoModelBuilder';
 
 describe('CreateTodoSaga specs', () => {

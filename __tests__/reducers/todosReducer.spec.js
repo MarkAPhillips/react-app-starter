@@ -1,4 +1,4 @@
-import todos, { ADD_REQUEST, ADD_SUCCESS, LOAD_SUCCESS } from '../../src/reducers/todoReducer';
+import todos, { ADD_REQUEST, ADD_SUCCESS, LOAD_SUCCESS } from '../../src/reducers/todosReducer';
 
 describe('Todo reducer specs', () => {
   let state;
