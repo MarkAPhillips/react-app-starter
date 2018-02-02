@@ -36,5 +36,7 @@ export default function todos(state = initialState, action) {
 // Action Creators
 export const addTodoItem = actionCreator(ADD_REQUEST, 'todo');
 export const setTodoItem = actionCreator(ADD_SUCCESS, 'todo');
+export const getTodoItems = actionCreator(LOAD_REQUEST);
+export const setTodoItems = actionCreator(LOAD_SUCCESS, 'todos');
 
 // Selectors
