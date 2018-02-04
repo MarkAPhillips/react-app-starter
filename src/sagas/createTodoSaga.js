@@ -4,8 +4,10 @@ import { createTodoItem } from '../services/todoService';
 import build from '../utils/todoModelBuilder';
 
 export function* createTodoSaga() {
-  const { todo } = yield take(ADD_REQUEST);
-  const model = yield call(build, todo);
-  const response = yield call(createTodoItem, model);
-  yield put(setTodoItem(response.data));
+  while (true) {
+    const { todo } = yield take(ADD_REQUEST);
+    const model = yield call(build, todo);
+    const response = yield call(createTodoItem, model);
+    yield put(setTodoItem(response.data));
+  }
 }
