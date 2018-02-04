@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { compose, withState, withHandlers, lifecycle } from 'recompose';
+import { compose, withHandlers, lifecycle } from 'recompose';
 import { addTodoItem, getTodoItems, todosSelector } from '../../reducers/todosReducer';
 import { TodoContainerPanel } from './styles';
-import { TodoAddItem, TodoList } from './';
+import { TodoForm, TodoList } from './';
 
 const defaultProps = { todos: {} };
 
 const propTypes = {
-  onClick: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
   todos: PropTypes.objectOf(PropTypes.shape({
     id: PropTypes.string,
     item: PropTypes.string,
@@ -24,12 +23,10 @@ const mapStateToProps = state => ({
 
 const enhance = compose(
   connect(mapStateToProps),
-  withState('inputfield', 'setInputField', ''),
   withHandlers({
-    onClick: props => () => {
-      props.dispatch(addTodoItem(props.inputfield));
+    handleSubmit: props => (values) => {
+      props.dispatch(addTodoItem(values.item));
     },
-    onChange: props => evt => props.setInputField(evt.target.value),
   }),
   lifecycle({
     componentWillMount() {
@@ -38,14 +35,14 @@ const enhance = compose(
   }),
 );
 
-const component = ({ onClick, onChange, todos }) => (
+export const Component = ({ handleSubmit, todos }) => (
   <TodoContainerPanel>
     <TodoList todos={todos} />
-    <TodoAddItem onClick={onClick} onChange={onChange} />
+    <TodoForm onSubmit={handleSubmit} />
   </TodoContainerPanel>
 );
 
-component.propTypes = propTypes;
-component.defaultProps = defaultProps;
+Component.propTypes = propTypes;
+Component.defaultProps = defaultProps;
 
-export const TodoContainer = enhance(component);
+export const TodoContainer = enhance(Component);

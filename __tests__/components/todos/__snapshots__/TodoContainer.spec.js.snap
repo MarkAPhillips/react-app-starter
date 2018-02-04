@@ -4,21 +4,25 @@ exports[`TodoContainer specs should render the component snapshot correctly 1`] 
 <section
   className=""
 >
-  <div
-    className=""
+  <form
+    onSubmit={[Function]}
   >
     <input
-      className=""
-      id="input-add-todo"
+      name="item"
+      onBlur={[Function]}
       onChange={[Function]}
+      onDragStart={[Function]}
+      onDrop={[Function]}
+      onFocus={[Function]}
       type="text"
+      value=""
     />
     <button
       className=""
-      onClick={[Function]}
+      type="submit"
     >
       Add
     </button>
-  </div>
+  </form>
 </section>
 `;
