@@ -1,21 +1,17 @@
 import React from 'react';
+import { Control, Form } from 'react-redux-form';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
 import { Button } from '../../assets/styles/components';
 
 const propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
-export const Form = ({ handleSubmit }) => (
-  <form onSubmit={handleSubmit}>
-    <Field name="item" component="input" type="text" />
+export const TodoForm = ({ onSubmit }) => (
+  <Form model="todo" onSubmit={onSubmit}>
+    <Control.text model="todo.item" id="todo.item" />
     <Button type="submit">Add</Button>
-  </form>
+  </Form>
 );
 
-Form.propTypes = propTypes;
-
-export const TodoForm = reduxForm({
-  form: 'todo',
-})(Form);
+TodoForm.propTypes = propTypes;
