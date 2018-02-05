@@ -37,8 +37,8 @@ const enhance = compose(
 
 export const Component = ({ handleSubmit, todos }) => (
   <TodoContainerPanel>
-    <TodoList todos={todos} />
     <TodoForm onSubmit={handleSubmit} />
+    <TodoList todos={todos} />
   </TodoContainerPanel>
 );
 
