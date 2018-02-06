@@ -12,3 +12,4 @@ export const Section = styled.section``;
 
 export const Button = styled.button``;
 
+export const Input = styled.input``;

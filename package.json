@@ -37,6 +37,8 @@
     "testRegex": "\\.spec\\.js$"
   },
   "dependencies": {
+    "@hocs/debounce-handler": "^0.3.0",
+    "@hocs/prevent-handlers-default": "^0.3.0",
     "axios": "^0.17.1",
     "babel-regenerator-runtime": "^6.5.0",
     "font-awesome": "^4.7.0",
@@ -45,7 +47,6 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "react-redux-form": "^1.16.5",
     "react-router": "^4.2.0",
     "recompose": "^0.26.0",
     "redux": "^3.7.2",

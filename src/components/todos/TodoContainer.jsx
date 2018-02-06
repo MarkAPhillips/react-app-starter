@@ -1,15 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { compose, withHandlers, lifecycle } from 'recompose';
+import debounceHandler from '@hocs/debounce-handler';
+import preventHandlersDefault from '@hocs/prevent-handlers-default';
+import { compose, withState, withHandlers, lifecycle } from 'recompose';
 import { addTodoItem, getTodoItems, todosSelector } from '../../reducers/todosReducer';
 import { TodoContainerPanel } from './styles';
 import { TodoForm, TodoList } from './';
 
-const defaultProps = { todos: {} };
+const defaultProps = { todos: {}, inputField: '' };
 
 const propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  inputField: PropTypes.string,
   todos: PropTypes.objectOf(PropTypes.shape({
     id: PropTypes.string,
     item: PropTypes.string,
@@ -23,24 +27,33 @@ const mapStateToProps = state => ({
 
 const enhance = compose(
   connect(mapStateToProps),
+  withState('inputField', 'setInputField', ''),
   withHandlers({
-    handleSubmit: props => (values) => {
-      props.dispatch(addTodoItem(values.item));
+    handleSubmit: props => () => {
+      props.dispatch(addTodoItem(props.inputField));
     },
+    handleChange: props => evt => props.setInputField(evt.target.value),
   }),
   lifecycle({
     componentWillMount() {
       this.props.dispatch(getTodoItems());
     },
   }),
+  debounceHandler('handleChange', 300),
+  preventHandlersDefault('handleSubmit'),
 );
 
-export const Component = ({ handleSubmit, todos }) => (
-  <TodoContainerPanel>
-    <TodoForm onSubmit={handleSubmit} />
-    <TodoList todos={todos} />
-  </TodoContainerPanel>
-);
+export const Component = ({
+  handleSubmit, handleChange, todos, inputField,
+}) => {
+  const isDisabled = inputField.length === 0;
+  return (
+    <TodoContainerPanel>
+      <TodoForm onSubmit={handleSubmit} onChange={handleChange} isDisabled={isDisabled} />
+      <TodoList todos={todos} />
+    </TodoContainerPanel>
+  );
+};
 
 Component.propTypes = propTypes;
 Component.defaultProps = defaultProps;
