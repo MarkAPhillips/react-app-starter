@@ -5,8 +5,8 @@ import build from '../utils/todoModelBuilder';
 
 export function* createTodoSaga() {
   while (true) {
-    const { todo } = yield take(ADD_REQUEST);
-    const model = yield call(build, todo);
+    const { payload } = yield take(ADD_REQUEST);
+    const model = yield call(build, payload);
     const response = yield call(createTodoItem, model);
     yield put(setTodoItem(response.data));
   }

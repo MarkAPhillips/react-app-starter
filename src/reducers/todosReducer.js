@@ -16,7 +16,8 @@ const initialState = { list: {} };
 export default function todos(state = initialState, action) {
   switch (action.type) {
     case ADD_SUCCESS: {
-      const { item, completed, id } = action.todo;
+      const { payload } = action;
+      const { item, completed, id } = payload;
       return {
         list: {
           ...state.list,
@@ -25,7 +26,7 @@ export default function todos(state = initialState, action) {
       };
     }
     case LOAD_SUCCESS: {
-      return Object.assign({}, state, { list: toHash(action.todos) });
+      return Object.assign({}, state, { list: toHash(action.payload) });
     }
     default:
       return state;
@@ -34,10 +35,10 @@ export default function todos(state = initialState, action) {
 
 
 // Action Creators
-export const addTodoItem = actionCreator(ADD_REQUEST, 'todo');
-export const setTodoItem = actionCreator(ADD_SUCCESS, 'todo');
+export const addTodoItem = actionCreator(ADD_REQUEST, 'payload');
+export const setTodoItem = actionCreator(ADD_SUCCESS, 'payload');
 export const getTodoItems = actionCreator(LOAD_REQUEST);
-export const setTodoItems = actionCreator(LOAD_SUCCESS, 'todos');
+export const setTodoItems = actionCreator(LOAD_SUCCESS, 'payload');
 
 // Selectors
 export const todosSelector = state => state.todos.list;

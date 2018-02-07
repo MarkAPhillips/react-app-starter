@@ -5,6 +5,6 @@ import { getTodoItems } from '../services/todoService';
 export function* fetchTodosSaga() {
   yield take(LOAD_REQUEST);
   const response = yield call(getTodoItems);
-  const todos = yield response.data;
-  yield put(setTodoItems(todos));
+  const payload = yield response.data;
+  yield put(setTodoItems(payload));
 }
