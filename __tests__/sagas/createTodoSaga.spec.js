@@ -16,9 +16,9 @@ describe('CreateTodoSaga specs', () => {
   });
 
   it('should call the build model function with the correct arguments', () => {
-    const todo = 'Write a unit test';
-    expected = call(build, todo);
-    result = gen.next({ todo }).value;
+    const payload = 'Write a unit test';
+    expected = call(build, payload);
+    result = gen.next({ payload }).value;
     expect(result).toEqual(expected);
   });
 
