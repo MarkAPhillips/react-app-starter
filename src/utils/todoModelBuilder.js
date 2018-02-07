@@ -1,9 +1,8 @@
-import uuidv4 from 'uuid/v4';
+import { withId } from './withId';
 
 export default function build(item) {
-  return {
-    id: uuidv4(),
+  return withId({
     item,
     completed: false,
-  };
+  });
 }

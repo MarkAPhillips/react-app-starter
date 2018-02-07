@@ -5,6 +5,7 @@ import debounceHandler from '@hocs/debounce-handler';
 import preventHandlersDefault from '@hocs/prevent-handlers-default';
 import { compose, withState, withHandlers, lifecycle } from 'recompose';
 import { addTodoItem, getTodoItems, todosSelector } from '../../reducers/todosReducer';
+import { addForm } from '../../reducers/formReducer';
 import { TodoContainerPanel } from './styles';
 import { TodoForm, TodoList } from './';
 
@@ -37,6 +38,7 @@ const enhance = compose(
   lifecycle({
     componentWillMount() {
       this.props.dispatch(getTodoItems());
+      this.props.dispatch(addForm({ name: 'todo' }));
     },
   }),
   debounceHandler('handleChange', 300),

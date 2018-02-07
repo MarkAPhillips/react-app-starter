@@ -1,4 +1,5 @@
 import AppConstants from '../constants';
+import { actionCreator } from './actionCreator';
 
 // Actions
 export const CREATE = `${AppConstants.APP_ID}/form/CREATE`;
@@ -36,3 +37,6 @@ export default function error(state = initialState, action) {
       return state;
   }
 }
+
+// Action creators
+export const addForm = actionCreator(CREATE, 'payload');
