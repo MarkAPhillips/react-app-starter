@@ -2,7 +2,7 @@ import { take, call, put } from 'redux-saga/effects';
 import { createTodoSaga } from '../../src/sagas';
 import { createTodoItem } from '../../src/services/todoService';
 import { ADD_REQUEST, setTodoItem } from '../../src/reducers/todosReducer';
-import build from '../../src/utils/todoModelBuilder';
+import { todo } from '../../src/utils/modelBuilder';
 
 describe('CreateTodoSaga specs', () => {
   const gen = createTodoSaga();
@@ -17,7 +17,7 @@ describe('CreateTodoSaga specs', () => {
 
   it('should call the build model function with the correct arguments', () => {
     const payload = 'Write a unit test';
-    expected = call(build, payload);
+    expected = call(todo, payload);
     result = gen.next({ payload }).value;
     expect(result).toEqual(expected);
   });

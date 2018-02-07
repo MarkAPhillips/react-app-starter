@@ -1,6 +1,6 @@
 import { withId } from './withId';
 
-export default function build(item) {
+export function todo(item) {
   return withId({
     item,
     completed: false,
