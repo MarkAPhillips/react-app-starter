@@ -1,5 +1,5 @@
 import uuidv4 from 'uuid/v4';
-import withId from '../../src/utils/withId';
+import { withId } from '../../src/utils/withId';
 
 jest.mock('uuid/v4');
 uuidv4.mockImplementation(() => 1);
