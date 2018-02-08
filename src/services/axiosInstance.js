@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API from '../constants';
+import { API } from '../constants';
 
 const defaultHeader = {
   'Content-Type': 'application/json;charset=UTF-8',

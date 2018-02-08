@@ -6,10 +6,3 @@ export function todo(item) {
     completed: false,
   });
 }
-
-export function form(name) {
-  return withId({
-    name,
-    disabled: true,
-  });
-}

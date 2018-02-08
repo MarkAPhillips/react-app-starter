@@ -10,4 +10,6 @@ const API = {
   TIMEOUT_MS: 10000,
 };
 
-export default API;
+const FORMS = { 1: { id: 1, name: 'todo' } };
+
+export { API, FORMS };

@@ -1,14 +1,14 @@
-import AppConstants from '../constants';
+import { API } from '../constants';
 import { actionCreator } from './actionCreator';
 import toHash from '../utils/toHash';
 
 // Actions
-export const ADD_REQUEST = `${AppConstants.APP_ID}/todos/ADD_REQUEST`;
-export const ADD_SUCCESS = `${AppConstants.APP_ID}/todos/ADD_SUCCESS`;
-export const ADD_FAIL = `${AppConstants.APP_ID}/todos/ADD_FAIL`;
-export const LOAD_REQUEST = `${AppConstants.APP_ID}/todos/LOAD_REQUEST`;
-export const LOAD_SUCCESS = `${AppConstants.APP_ID}/todos/LOAD_SUCCESS`;
-export const LOAD_FAIL = `${AppConstants.APP_ID}/todos/LOAD_FAIL`;
+export const ADD_REQUEST = `${API.APP_ID}/todos/ADD_REQUEST`;
+export const ADD_SUCCESS = `${API.APP_ID}/todos/ADD_SUCCESS`;
+export const ADD_FAIL = `${API.APP_ID}/todos/ADD_FAIL`;
+export const LOAD_REQUEST = `${API.APP_ID}/todos/LOAD_REQUEST`;
+export const LOAD_SUCCESS = `${API.APP_ID}/todos/LOAD_SUCCESS`;
+export const LOAD_FAIL = `${API.APP_ID}/todos/LOAD_FAIL`;
 
 // Reducer
 const initialState = { list: {} };

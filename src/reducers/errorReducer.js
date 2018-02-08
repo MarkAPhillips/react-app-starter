@@ -1,7 +1,7 @@
-import AppConstants from '../constants';
+import { API } from '../constants';
 
 // Actions
-export const ADD = `${AppConstants.APP_ID}/error/ADD`;
+export const ADD = `${API.APP_ID}/error/ADD`;
 
 export default function error(state = [], action) {
   switch (action.type) {

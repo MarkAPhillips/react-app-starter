@@ -1,9 +1,11 @@
-import AppConstants from '../constants';
+import has from 'lodash/has';
+import { API } from '../constants';
 import { actionCreator } from './actionCreator';
 
+
 // Actions
-export const CREATE = `${AppConstants.APP_ID}/form/CREATE`;
-export const DISABLE = `${AppConstants.APP_ID}/form/DISABLE`;
+export const CREATE = `${API.APP_ID}/form/CREATE`;
+export const DISABLE = `${API.APP_ID}/form/DISABLE`;
 
 const initialState = { forms: {} };
 
@@ -12,12 +14,13 @@ export default function error(state = initialState, action) {
     case CREATE: {
       const { payload } = action;
       const { id, name } = payload;
-      return {
-        forms: {
-          ...state.forms,
-          [id]: { id, name, disabled: true },
-        },
-      };
+      return has(state.forms, id) ? state :
+        {
+          forms: {
+            ...state.forms,
+            [id]: { id, name, disabled: true },
+          },
+        };
     }
     case DISABLE: {
       const { payload } = action;
@@ -40,3 +43,4 @@ export default function error(state = initialState, action) {
 
 // Action creators
 export const addForm = actionCreator(CREATE, 'payload');
+

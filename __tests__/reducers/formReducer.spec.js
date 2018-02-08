@@ -9,7 +9,7 @@ describe('Form reducer specs', () => {
     expect(state).toEqual(initialState);
   });
 
-  it('should handle CREATE', () => {
+  it('should handle CREATE for a new form', () => {
     initialState = { forms: { 1: { id: 1, name: 'todo', disabled: true } } };
     state = form(initialState, {
       type: CREATE,
@@ -19,6 +19,20 @@ describe('Form reducer specs', () => {
       forms: {
         1: { id: 1, name: 'todo', disabled: true },
         2: { id: 2, name: 'anothertodo', disabled: true },
+      },
+    };
+    expect(state).toEqual(expected);
+  });
+
+  it('should handle CREATE for a form that already exists', () => {
+    initialState = { forms: { 1: { id: 1, name: 'todo', disabled: true } } };
+    state = form(initialState, {
+      type: CREATE,
+      payload: { id: 1, name: 'todo' },
+    });
+    const expected = {
+      forms: {
+        1: { id: 1, name: 'todo', disabled: true },
       },
     };
     expect(state).toEqual(expected);
