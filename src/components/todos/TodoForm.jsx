@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Input, Button } from '../../assets/styles/components';
 
+const defaultProps = { isDisabled: true };
+
 const propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  isDisabled: PropTypes.bool.isRequired,
+  isDisabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
 };
 
@@ -16,3 +18,4 @@ export const TodoForm = ({ onSubmit, onChange, isDisabled }) => (
 );
 
 TodoForm.propTypes = propTypes;
+TodoForm.defaultProps = defaultProps;

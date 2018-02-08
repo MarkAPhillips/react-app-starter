@@ -43,4 +43,8 @@ export default function error(state = initialState, action) {
 
 // Action creators
 export const addForm = actionCreator(CREATE, 'payload');
+export const disableForm = actionCreator(DISABLE, 'payload');
+
+// Selectors
+export const formSelector = (state, id) => state.form.forms[id];
 

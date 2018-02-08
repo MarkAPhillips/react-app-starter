@@ -1,21 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import isEmpty from 'lodash/isEmpty';
 import debounceHandler from '@hocs/debounce-handler';
 import preventHandlersDefault from '@hocs/prevent-handlers-default';
 import { compose, withState, withHandlers, lifecycle } from 'recompose';
 import { addTodoItem, getTodoItems, todosSelector } from '../../reducers/todosReducer';
 import { FORMS } from '../../constants';
-import { addForm } from '../../reducers/formReducer';
+import { addForm, disableForm, formSelector } from '../../reducers/formReducer';
 import { TodoContainerPanel } from './styles';
 import { TodoForm, TodoList } from './';
 
-const defaultProps = { todos: {}, inputField: '' };
+const defaultProps = { todos: {}, form: {} };
+const formId = 1;
 
 const propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  inputField: PropTypes.string,
+  form: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    disabled: PropTypes.bool,
+  }),
   todos: PropTypes.objectOf(PropTypes.shape({
     id: PropTypes.string,
     item: PropTypes.string,
@@ -25,6 +31,7 @@ const propTypes = {
 
 const mapStateToProps = state => ({
   todos: todosSelector(state),
+  form: formSelector(state, formId),
 });
 
 const enhance = compose(
@@ -34,12 +41,17 @@ const enhance = compose(
     handleSubmit: props => () => {
       props.dispatch(addTodoItem(props.inputField));
     },
-    handleChange: props => evt => props.setInputField(evt.target.value),
+    handleChange: props => (evt) => {
+      const entry = evt.target.value;
+      props.setInputField(entry);
+      const disabled = !!isEmpty(entry);
+      props.dispatch(disableForm({ id: formId, disabled }));
+    },
   }),
   lifecycle({
     componentWillMount() {
       this.props.dispatch(getTodoItems());
-      this.props.dispatch(addForm(FORMS[1]));
+      this.props.dispatch(addForm(FORMS[formId]));
     },
   }),
   debounceHandler('handleChange', 300),
@@ -47,12 +59,12 @@ const enhance = compose(
 );
 
 export const Component = ({
-  handleSubmit, handleChange, todos, inputField,
+  handleSubmit, handleChange, todos, form,
 }) => {
-  const isDisabled = inputField.length === 0;
+  const { disabled } = form;
   return (
     <TodoContainerPanel>
-      <TodoForm onSubmit={handleSubmit} onChange={handleChange} isDisabled={isDisabled} />
+      <TodoForm onSubmit={handleSubmit} onChange={handleChange} isDisabled={disabled} />
       <TodoList todos={todos} />
     </TodoContainerPanel>
   );
