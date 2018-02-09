@@ -11,7 +11,7 @@ describe('TodoListItem specs', () => {
 
   it('should render the correct output', () => {
     const todo = { id: 1, item: 'Write a unit test', completed: false };
-    const wrapper = mount(<TodoListItem item={todo} />);
+    const wrapper = mount(<TodoListItem todo={todo} />);
     expect(wrapper.html()).toContain('Write a unit test');
   });
 });

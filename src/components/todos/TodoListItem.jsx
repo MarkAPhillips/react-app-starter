@@ -3,22 +3,26 @@ import PropTypes from 'prop-types';
 import { TodoListItemPanel, TodoItemText } from './styles';
 import { Input } from '../../assets/styles/components';
 
-const defaultProps = { item: {} };
+const defaultProps = { todo: {} };
 
 const propTypes = {
   onStatusChange: PropTypes.func.isRequired,
-  item: PropTypes.shape({
+  todo: PropTypes.shape({
     id: PropTypes.string,
     item: PropTypes.string,
     completed: PropTypes.bool,
   }),
 };
 
-export const TodoListItem = ({ item, onStatusChange }) => (
-  <TodoListItemPanel>
-    <Input type="checkbox" onChange={onStatusChange} id={item.id} />
-    <TodoItemText completed={item.completed}>{item.item}</TodoItemText>
-  </TodoListItemPanel>);
+export const TodoListItem = ({ todo, onStatusChange }) => {
+  const { id, completed, item } = todo;
+  return (
+    <TodoListItemPanel>
+      <Input type="checkbox" defaultChecked={completed} onChange={onStatusChange} id={id} />
+      <TodoItemText completed={completed}>{item}</TodoItemText>
+    </TodoListItemPanel>
+  );
+};
 
 TodoListItem.defaultProps = defaultProps;
 TodoListItem.propTypes = propTypes;

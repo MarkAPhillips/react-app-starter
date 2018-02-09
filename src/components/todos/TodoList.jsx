@@ -3,4 +3,4 @@ import { TodoListItem } from './';
 
 export const TodoList = ({ todos, onStatusChange }) =>
   Object.keys(todos)
-    .map(key => <TodoListItem key={key} item={todos[key]} onStatusChange={onStatusChange} />);
+    .map(key => <TodoListItem key={key} todo={todos[key]} onStatusChange={onStatusChange} />);
