@@ -1,13 +1,23 @@
 import getApiParams from './resourceBuilder';
 
-/** GET method - returns a promise */
-export function get(resource, params, headers) {
+const httpRequest = (method, resource, params, headers, data) => {
   const { api, queryStringParams } = getApiParams(params, headers);
-  return api.get(`${resource}${queryStringParams}`);
+  const resourcePath = `${resource}${queryStringParams}`;
+  const args = [resourcePath];
+  return api[method].call(null, ...(data == null ? args : [...args, data]));
+};
+
+/** GET items from a resource  */
+export function get(resource, params, headers) {
+  return httpRequest('get', resource, params, headers);
 }
 
-/** POST method returns a promise */
+/** POST to a resource */
 export function post(resource, data, params, headers) {
-  const { api, queryStringParams } = getApiParams(params, headers);
-  return api.post(`${resource}${queryStringParams}`, data);
+  return httpRequest('post', resource, params, headers, data);
+}
+
+/** PUT to a resource */
+export function put(resource, data, params, headers) {
+  return httpRequest('put', resource, params, headers, data);
 }

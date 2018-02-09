@@ -1,13 +1,18 @@
-import { post, get } from './resource';
+import { post, put, get } from './resource';
 
 const resource = 'todos/';
 
-/** POST a todo item */
+/** Create a new todo item */
 export function createTodoItem(todoItem) {
   return post(resource, todoItem);
 }
 
-/** GET all todo items */
+/** Get all todo items  */
 export function getTodoItems() {
   return get(resource);
+}
+
+/** Update a todo item  */
+export function updateTodoItem(id, todoItem) {
+  return put(`${resource}${id}`, todoItem);
 }
