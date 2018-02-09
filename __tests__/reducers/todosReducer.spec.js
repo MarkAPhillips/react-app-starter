@@ -1,15 +1,17 @@
-import todos, { ADD_REQUEST, ADD_SUCCESS, LOAD_SUCCESS } from '../../src/reducers/todosReducer';
+import todos, { ADD_REQUEST, ADD_SUCCESS, LOAD_SUCCESS, STATUS_CHANGE_SUCCESS } from '../../src/reducers/todosReducer';
 
 describe('Todo reducer specs', () => {
   let state;
-  const initialState = { list: {} };
+  let initialState;
 
   it('should return the initial state', () => {
+    initialState = { list: {} };
     state = todos(undefined, {});
     expect(state).toEqual(initialState);
   });
 
   it('should handle ADD_REQUEST', () => {
+    initialState = { list: {} };
     state = todos(initialState, {
       type: ADD_REQUEST,
     });
@@ -17,6 +19,7 @@ describe('Todo reducer specs', () => {
   });
 
   it('should handle ADD_SUCCESS', () => {
+    initialState = { list: {} };
     state = todos(initialState, {
       type: ADD_SUCCESS,
       payload: { id: 1, item: 'Write a unit test', completed: false },
@@ -26,6 +29,7 @@ describe('Todo reducer specs', () => {
   });
 
   it('should handle LOAD_SUCCESS', () => {
+    initialState = { list: {} };
     state = todos(initialState, {
       type: LOAD_SUCCESS,
       payload: [{ id: 1, item: 'Write a unit test', completed: true },
@@ -35,6 +39,26 @@ describe('Todo reducer specs', () => {
       list: {
         1: { id: 1, item: 'Write a unit test', completed: true },
         2: { id: 2, item: 'Find a job', completed: false },
+      },
+    };
+    expect(state).toEqual(expected);
+  });
+
+  it('should handle STATUS_CHANGE_SUCCESS', () => {
+    initialState = {
+      list: {
+        1: { id: 1, item: 'todo', completed: false },
+        2: { id: 2, item: 'anothertodo', completed: false },
+      },
+    };
+    state = todos(initialState, {
+      type: STATUS_CHANGE_SUCCESS,
+      payload: { id: 1, completed: true },
+    });
+    const expected = {
+      list: {
+        1: { id: 1, item: 'todo', completed: true },
+        2: { id: 2, item: 'anothertodo', completed: false },
       },
     };
     expect(state).toEqual(expected);
