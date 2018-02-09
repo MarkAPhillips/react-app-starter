@@ -5,7 +5,7 @@ import { updateTodoItem } from '../services/todoService';
 export function* updateTodoSaga() {
   while (true) {
     const { payload } = yield take(STATUS_CHANGE_REQUEST);
-    yield call(updateTodoItem, payload);
+    yield call(updateTodoItem, payload.id, payload);
     yield put(updateTodo(payload));
   }
 }

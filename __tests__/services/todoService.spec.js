@@ -15,10 +15,10 @@ describe('TodoService specs', () => {
     expect(resource.get).toHaveBeenCalledWith('todos/');
   });
 
-  it('should verify put is called with the correct arguments', () => {
-    resource.put = jest.fn();
+  it('should verify patch is called with the correct arguments', () => {
+    resource.patch = jest.fn();
     const todoItem = { todo: 'Write a unit test', completed: false, id: 1 };
     updateTodoItem(1, todoItem);
-    expect(resource.put).toHaveBeenCalledWith('todos/1', todoItem);
+    expect(resource.patch).toHaveBeenCalledWith('todos/1', todoItem);
   });
 });

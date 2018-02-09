@@ -1,4 +1,4 @@
-import { post, put, get } from './resource';
+import { post, patch, get } from './resource';
 
 const resource = 'todos/';
 
@@ -14,5 +14,5 @@ export function getTodoItems() {
 
 /** Update a todo item  */
 export function updateTodoItem(id, todoItem) {
-  return put(`${resource}${id}`, todoItem);
+  return patch(`${resource}${id}`, todoItem);
 }

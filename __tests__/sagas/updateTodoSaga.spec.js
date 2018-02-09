@@ -14,10 +14,9 @@ describe('UpdateTodoSaga specs', () => {
     expect(result).toEqual(expected);
   });
 
-
   it('should call the updateTodoItem api call with the correct arguments', () => {
     const payload = { id: 1, completed: false };
-    expected = call(updateTodoItem, payload);
+    expected = call(updateTodoItem, payload.id, payload);
     result = gen.next({ payload }).value;
     expect(result).toEqual(expected);
   });

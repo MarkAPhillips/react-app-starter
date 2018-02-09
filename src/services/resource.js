@@ -17,7 +17,7 @@ export function post(resource, data, params, headers) {
   return httpRequest('post', resource, params, headers, data);
 }
 
-/** PUT to a resource */
-export function put(resource, data, params, headers) {
-  return httpRequest('put', resource, params, headers, data);
+/** PATCH a resource */
+export function patch(resource, data, params, headers) {
+  return httpRequest('patch', resource, params, headers, data);
 }
