@@ -12,7 +12,10 @@ const propTypes = {
   }),
 };
 
-export const TodoListItem = ({ item }) => <TodoListItemPanel>{item.item}</TodoListItemPanel>;
+export const TodoListItem = ({ item }) => (
+  <TodoListItemPanel>
+    <input type="checkbox" />{item.item}
+  </TodoListItemPanel>);
 
 TodoListItem.defaultProps = defaultProps;
 TodoListItem.propTypes = propTypes;

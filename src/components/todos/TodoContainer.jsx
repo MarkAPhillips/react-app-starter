@@ -9,7 +9,7 @@ import { addTodoItem, getTodoItems, todosSelector } from '../../reducers/todosRe
 import { FORMS } from '../../constants';
 import { addForm, disableForm, formSelector } from '../../reducers/formReducer';
 import { TodoContainerPanel } from './styles';
-import { TodoForm, TodoList } from './';
+import { TodoFilter, TodoForm, TodoList } from './';
 
 const defaultProps = { todos: {}, form: {} };
 const formId = 1;
@@ -66,6 +66,7 @@ export const Component = ({
     <TodoContainerPanel>
       <TodoForm onSubmit={handleSubmit} onChange={handleChange} isDisabled={disabled} />
       <TodoList todos={todos} />
+      <TodoFilter />
     </TodoContainerPanel>
   );
 };
