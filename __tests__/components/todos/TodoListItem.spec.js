@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import 'jest-styled-components';
 import { TodoListItem } from '../../../src/components/todos';
 
@@ -9,9 +9,9 @@ describe('TodoListItem specs', () => {
     expect(wrapper.exists()).toEqual(true);
   });
 
-  it('should output the item text', () => {
+  it('should render the correct output', () => {
     const todo = { id: 1, item: 'Write a unit test', completed: false };
-    const wrapper = shallow(<TodoListItem item={todo} />).dive();
-    expect(wrapper.text()).toEqual('Write a unit test');
+    const wrapper = mount(<TodoListItem item={todo} />);
+    expect(wrapper.html()).toContain('Write a unit test');
   });
 });

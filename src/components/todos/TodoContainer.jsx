@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import debounceHandler from '@hocs/debounce-handler';
 import preventHandlersDefault from '@hocs/prevent-handlers-default';
 import { compose, withState, withHandlers, lifecycle } from 'recompose';
-import { requestAdd, requestLoad, todosSelector } from '../../reducers/todosReducer';
+import { requestAdd, requestLoad, todosSelector, requestStatusChange } from '../../reducers/todosReducer';
 import { FORMS } from '../../constants';
 import { addForm, disableForm, formSelector } from '../../reducers/formReducer';
 import { TodoContainerPanel } from './styles';
@@ -17,6 +17,7 @@ const formId = 1;
 const propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
+  handleStatusChange: PropTypes.func.isRequired,
   form: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -47,6 +48,10 @@ const enhance = compose(
       const disabled = !!isEmpty(entry);
       props.dispatch(disableForm({ id: formId, disabled }));
     },
+    handleStatusChange: props => (evt) => {
+      const { checked, id } = evt.target;
+      props.dispatch(requestStatusChange({ id, completed: checked }));
+    },
   }),
   lifecycle({
     componentWillMount() {
@@ -59,13 +64,13 @@ const enhance = compose(
 );
 
 export const Component = ({
-  handleSubmit, handleChange, todos, form,
+  handleSubmit, handleChange, handleStatusChange, todos, form,
 }) => {
   const { disabled } = form;
   return (
     <TodoContainerPanel>
       <TodoForm onSubmit={handleSubmit} onChange={handleChange} isDisabled={disabled} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onStatusChange={handleStatusChange} />
       <TodoFilter />
     </TodoContainerPanel>
   );

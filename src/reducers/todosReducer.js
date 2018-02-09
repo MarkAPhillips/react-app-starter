@@ -56,7 +56,7 @@ export const requestAdd = actionCreator(ADD_REQUEST, 'payload');
 export const addTodo = actionCreator(ADD_SUCCESS, 'payload');
 export const requestLoad = actionCreator(LOAD_REQUEST);
 export const setTodos = actionCreator(LOAD_SUCCESS, 'payload');
-export const requestStatusChange = actionCreator(STATUS_CHANGE_REQUEST);
+export const requestStatusChange = actionCreator(STATUS_CHANGE_REQUEST, 'payload');
 export const updateTodo = actionCreator(STATUS_CHANGE_SUCCESS, 'payload');
 
 // Selectors
