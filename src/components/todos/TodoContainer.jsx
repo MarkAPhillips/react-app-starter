@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import debounceHandler from '@hocs/debounce-handler';
 import preventHandlersDefault from '@hocs/prevent-handlers-default';
 import { compose, withState, withHandlers, lifecycle } from 'recompose';
-import { addTodoItem, getTodoItems, todosSelector } from '../../reducers/todosReducer';
+import { requestAdd, requestLoad, todosSelector } from '../../reducers/todosReducer';
 import { FORMS } from '../../constants';
 import { addForm, disableForm, formSelector } from '../../reducers/formReducer';
 import { TodoContainerPanel } from './styles';
@@ -39,7 +39,7 @@ const enhance = compose(
   withState('inputField', 'setInputField', ''),
   withHandlers({
     handleSubmit: props => () => {
-      props.dispatch(addTodoItem(props.inputField));
+      props.dispatch(requestAdd(props.inputField));
     },
     handleChange: props => (evt) => {
       const entry = evt.target.value;
@@ -50,7 +50,7 @@ const enhance = compose(
   }),
   lifecycle({
     componentWillMount() {
-      this.props.dispatch(getTodoItems());
+      this.props.dispatch(requestLoad());
       this.props.dispatch(addForm(FORMS[formId]));
     },
   }),

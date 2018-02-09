@@ -52,10 +52,12 @@ export default function todos(state = initialState, action) {
 
 
 // Action Creators
-export const addTodoItem = actionCreator(ADD_REQUEST, 'payload');
-export const setTodoItem = actionCreator(ADD_SUCCESS, 'payload');
-export const getTodoItems = actionCreator(LOAD_REQUEST);
-export const setTodoItems = actionCreator(LOAD_SUCCESS, 'payload');
+export const requestAdd = actionCreator(ADD_REQUEST, 'payload');
+export const addTodo = actionCreator(ADD_SUCCESS, 'payload');
+export const requestLoad = actionCreator(LOAD_REQUEST);
+export const setTodos = actionCreator(LOAD_SUCCESS, 'payload');
+export const requestStatusChange = actionCreator(STATUS_CHANGE_REQUEST);
+export const updateTodo = actionCreator(STATUS_CHANGE_SUCCESS, 'payload');
 
 // Selectors
 export const todosSelector = state => state.todos.list;

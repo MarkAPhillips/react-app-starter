@@ -1,6 +1,6 @@
 import { take, call, put } from 'redux-saga/effects';
 import { fetchTodosSaga } from '../../src/sagas';
-import { LOAD_REQUEST, setTodoItems } from '../../src/reducers/todosReducer';
+import { LOAD_REQUEST, setTodos } from '../../src/reducers/todosReducer';
 import { getTodoItems } from '../../src/services/todoService';
 
 describe('FetchtodosSaga specs', () => {
@@ -27,9 +27,9 @@ describe('FetchtodosSaga specs', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should yield action SetTodoItems', () => {
+  it('should yield action setTodos', () => {
     const todos = [{ id: 1, item: 'Write unit test', completed: false }];
-    expected = put(setTodoItems(todos));
+    expected = put(setTodos(todos));
     result = gen.next(todos).value;
     expect(result).toEqual(expected);
   });

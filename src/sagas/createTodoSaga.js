@@ -1,5 +1,5 @@
 import { take, call, put } from 'redux-saga/effects';
-import { ADD_REQUEST, setTodoItem } from '../reducers/todosReducer';
+import { ADD_REQUEST, addTodo } from '../reducers/todosReducer';
 import { createTodoItem } from '../services/todoService';
 import { todo } from '../utils/modelBuilder';
 
@@ -8,6 +8,6 @@ export function* createTodoSaga() {
     const { payload } = yield take(ADD_REQUEST);
     const model = yield call(todo, payload);
     const response = yield call(createTodoItem, model);
-    yield put(setTodoItem(response.data));
+    yield put(addTodo(response.data));
   }
 }
