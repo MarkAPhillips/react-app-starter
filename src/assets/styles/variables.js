@@ -5,5 +5,7 @@ export const fonts = { size: '14px', family: 'Open Sans' };
 export const colours = {
   white: '#fff',
   black: '000',
+  blue: '#428bca',
+  grey: '#ececec',
 };
 
