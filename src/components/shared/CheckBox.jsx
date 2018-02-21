@@ -25,7 +25,6 @@ const CheckBoxPanel = styled.div`
   > input:checked + label {
     &:before {
       content: "${fontAwesome.content.fa_checked_square_o}";
-      margin-left: -10px;
     }
   }
 `;
