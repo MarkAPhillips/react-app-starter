@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TodoListItemPanel, TodoItemText } from './styles';
-import { Input } from '../../assets/styles/components';
+import { TodoListItemPanel } from './styles';
+import { CheckBox } from '../shared';
 
 const defaultProps = { todo: {} };
 
@@ -18,8 +18,7 @@ export const TodoListItem = ({ todo, onStatusChange }) => {
   const { id, completed, item } = todo;
   return (
     <TodoListItemPanel>
-      <Input type="checkbox" defaultChecked={completed} onChange={onStatusChange} id={id} />
-      <TodoItemText completed={completed}>{item}</TodoItemText>
+      <CheckBox id={id} completed={completed} onChange={onStatusChange} item={item} />
     </TodoListItemPanel>
   );
 };
