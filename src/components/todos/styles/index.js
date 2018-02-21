@@ -7,6 +7,12 @@ export const TodoContainerPanel = styled.section`
   padding: 0.5em;
 `;
 
-export const TodoListItemPanel = styled.div``;
+export const TodoListItemPanel = styled.div`
+  padding: 0.2em;
+`;
 
 export const TodoFilterPanel = styled.div``;
+
+export const InputPanel = styled.div`
+  width: 60%;
+`;

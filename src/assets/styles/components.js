@@ -35,4 +35,5 @@ export const Input = styled.input`
   padding: 0.25em 0.5em;
   border-radius: 3px;
   border: 1px solid ${colours.grey};
+  width:100%;
 `;
