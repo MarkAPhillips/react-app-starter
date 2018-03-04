@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import debounceHandler from '@hocs/debounce-handler';
 import preventHandlersDefault from '@hocs/prevent-handlers-default';
 import { compose, withState, withHandlers, lifecycle } from 'recompose';
-import { requestAdd, requestLoad, todosSelector, requestStatusChange } from '../../reducers/todosReducer';
+import { requestAdd, requestLoad, todosDefaultSelector, requestStatusChange } from '../../reducers/todosReducer';
 import { FORMS } from '../../constants';
 import { addForm, disableForm, formSelector } from '../../reducers/formReducer';
 import { TodoContainerPanel } from './styles';
@@ -31,7 +31,7 @@ const propTypes = {
 };
 
 const mapStateToProps = state => ({
-  todos: todosSelector(state),
+  todos: todosDefaultSelector(state),
   form: formSelector(state, formId),
 });
 

@@ -1,3 +1,5 @@
+
+import { values, orderBy } from 'lodash';
 import { API } from '../constants';
 import { actionCreator } from './actionCreator';
 import toHash from '../utils/toHash';
@@ -20,11 +22,15 @@ export default function todos(state = initialState, action) {
   switch (action.type) {
     case ADD_SUCCESS: {
       const { payload } = action;
-      const { item, completed, id } = payload;
+      const {
+        item, createdDate, completed, id,
+      } = payload;
       return {
         list: {
           ...state.list,
-          [id]: { id, item, completed },
+          [id]: {
+            id, item, createdDate, completed,
+          },
         },
       };
     }
@@ -50,7 +56,6 @@ export default function todos(state = initialState, action) {
   }
 }
 
-
 // Action Creators
 export const requestAdd = actionCreator(ADD_REQUEST, 'payload');
 export const addTodo = actionCreator(ADD_SUCCESS, 'payload');
@@ -60,4 +65,4 @@ export const requestStatusChange = actionCreator(STATUS_CHANGE_REQUEST, 'payload
 export const updateTodo = actionCreator(STATUS_CHANGE_SUCCESS, 'payload');
 
 // Selectors
-export const todosSelector = state => state.todos.list;
+export const todosDefaultSelector = state => orderBy(values(state.todos.list), ['createdDate'], ['desc']);
