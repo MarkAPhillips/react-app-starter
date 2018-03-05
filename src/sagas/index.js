@@ -1,3 +1,3 @@
 export { createTodoSaga } from './createTodoSaga';
-export { fetchTodosSaga } from './fetchTodosSaga';
+export { watchTodosSaga } from './fetchTodosSaga';
 export { updateTodoSaga } from './updateTodoSaga';
