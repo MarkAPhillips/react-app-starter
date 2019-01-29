@@ -4,8 +4,9 @@
     "browser": true,
     "jest/globals": true
   },
+  "parser": "babel-eslint",
   "plugins": [
-    "jest"
+    "jest", "babel"
   ],
   "globals": {
     "_": true,
