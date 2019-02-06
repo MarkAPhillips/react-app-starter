@@ -32,16 +32,24 @@ config.plugins = [];
 
 /* Cleans the directory */
 config.plugins.push(new CleanWebpackPlugin(['./dist']));
-config.plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
 
 /* Generates index.html file and injects the bundle.js file into it */
 config.plugins.push(new HtmlWebpackPlugin({
   template: './src/index.html',
 }));
 
-config.plugins.push(new webpack.optimize.CommonsChunkPlugin({
-  names: ['vendor', 'manifest'],
-}));
+config.optimization = {
+  splitChunks: {
+    cacheGroups: {
+      vendor: {
+        test: /node_modules/,
+        chunks: 'initial',
+        name: 'vendor',
+        enforce: true,
+      },
+    },
+  },
+};
 
 config.module = {
   rules: [

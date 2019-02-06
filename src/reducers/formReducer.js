@@ -1,4 +1,4 @@
-import has from 'lodash/has';
+import _ from 'lodash';
 import { API } from '../constants';
 import { actionCreator } from './actionCreator';
 
@@ -14,7 +14,7 @@ export default function error(state = initialState, action) {
     case CREATE: {
       const { payload } = action;
       const { id, name } = payload;
-      return has(state.forms, id) ? state :
+      return _.has(state.forms, id) ? state :
         {
           forms: {
             ...state.forms,
