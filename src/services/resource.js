@@ -21,3 +21,8 @@ export function post(resource, data, params, headers) {
 export function patch(resource, data, params, headers) {
   return httpRequest('patch', resource, params, headers, data);
 }
+
+/** DELETE A resource  */
+export function deleteItem(resource, params, headers) {
+  return httpRequest('delete', resource, params, headers);
+}

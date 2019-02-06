@@ -1,5 +1,5 @@
 
-import { values, orderBy } from 'lodash';
+import { values, orderBy, omit } from 'lodash';
 import { API } from '../constants';
 import { actionCreator } from './actionCreator';
 import toHash from '../utils/toHash';
@@ -14,6 +14,9 @@ export const LOAD_FAIL = `${API.APP_ID}/todos/LOAD_FAIL`;
 export const STATUS_CHANGE_REQUEST = `${API.APP_ID}/todos/STATUS_CHANGE_REQUEST`;
 export const STATUS_CHANGE_SUCCESS = `${API.APP_ID}/todos/STATUS_CHANGE_SUCCESS`;
 export const STATUS_CHANGE_FAIL = `${API.APP_ID}/todos/STATUS_CHANGE_FAIL`;
+export const DELETE_REQUEST = `${API.APP_ID}/todos/DELETE_REQUEST`;
+export const DELETE_SUCCESS = `${API.APP_ID}/todos/DELETE_SUCCESS`;
+export const DELETE_FAIL = `${API.APP_ID}/todos/DELETE_FAIL`;
 
 // Reducer
 const initialState = { list: {} };
@@ -32,6 +35,13 @@ export default function todos(state = initialState, action) {
             id, item, createdDate, completed,
           },
         },
+      };
+    }
+    case DELETE_SUCCESS: {
+      const { id } = action.payload;
+      return {
+        ...state,
+        list: omit(state.list, id),
       };
     }
     case LOAD_SUCCESS:

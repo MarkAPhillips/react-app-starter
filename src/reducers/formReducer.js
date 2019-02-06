@@ -2,7 +2,6 @@ import _ from 'lodash';
 import { API } from '../constants';
 import { actionCreator } from './actionCreator';
 
-
 // Actions
 export const CREATE = `${API.APP_ID}/form/CREATE`;
 export const DISABLE = `${API.APP_ID}/form/DISABLE`;

@@ -1,4 +1,4 @@
-import { createTodoItem, getTodoItems, updateTodoItem } from '../../src/services/todoService';
+import { createTodoItem, getTodoItems, updateTodoItem, deleteTodoItem } from '../../src/services/todoService';
 import * as resource from '../../src/services/resource';
 
 describe('TodoService specs', () => {
@@ -21,4 +21,11 @@ describe('TodoService specs', () => {
     updateTodoItem(1, todoItem);
     expect(resource.patch).toHaveBeenCalledWith('todos/1', todoItem);
   });
+
+  it('should verify deleteUtem is called with the correct arguments', () => {
+    resource.deleteItem = jest.fn();
+    deleteTodoItem(1);
+    expect(resource.deleteItem).toHaveBeenCalledWith('todos/1');
+  });
 });
+

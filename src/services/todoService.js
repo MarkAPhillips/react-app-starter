@@ -1,18 +1,11 @@
-import { post, patch, get } from './resource';
+import { post, patch, get, deleteItem } from './resource';
 
 const resource = 'todos/';
 
-/** Create a new todo item */
-export function createTodoItem(todoItem) {
-  return post(resource, todoItem);
-}
+export const createTodoItem = todoItem => post(resource, todoItem);
 
-/** Get all todo items  */
-export function getTodoItems() {
-  return get(resource);
-}
+export const getTodoItems = () => get(resource);
 
-/** Update a todo item  */
-export function updateTodoItem(id, todoItem) {
-  return patch(`${resource}${id}`, todoItem);
-}
+export const updateTodoItem = (id, todoItem) => patch(`${resource}${id}`, todoItem);
+
+export const deleteTodoItem = id => deleteItem(`${resource}${id}`);

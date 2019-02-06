@@ -1,4 +1,4 @@
-import todos, { ADD_REQUEST, ADD_SUCCESS, LOAD_SUCCESS, STATUS_CHANGE_SUCCESS } from '../../src/reducers/todosReducer';
+import todos, { ADD_REQUEST, ADD_SUCCESS, LOAD_SUCCESS, STATUS_CHANGE_SUCCESS, DELETE_SUCCESS } from '../../src/reducers/todosReducer';
 
 describe('Todo reducer specs', () => {
   let state;
@@ -58,6 +58,25 @@ describe('Todo reducer specs', () => {
     const expected = {
       list: {
         1: { id: 1, item: 'todo', completed: true },
+        2: { id: 2, item: 'anothertodo', completed: false },
+      },
+    };
+    expect(state).toEqual(expected);
+  });
+
+  it('should handle DELETE_SUCCESS', () => {
+    initialState = {
+      list: {
+        1: { id: 1, item: 'todo', completed: false },
+        2: { id: 2, item: 'anothertodo', completed: false },
+      },
+    };
+    state = todos(initialState, {
+      type: DELETE_SUCCESS,
+      payload: { id: 1 },
+    });
+    const expected = {
+      list: {
         2: { id: 2, item: 'anothertodo', completed: false },
       },
     };

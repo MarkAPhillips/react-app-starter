@@ -8,7 +8,14 @@ export const TodoContainerPanel = styled.section`
 `;
 
 export const TodoListItemPanel = styled.div`
+  display: flex;
   padding: 0.2em;
+  align-items: center;
+  width: 400px;
+  justify-content: space-between;
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export const TodoFilterPanel = styled.div``;

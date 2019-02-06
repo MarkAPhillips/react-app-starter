@@ -4,6 +4,12 @@
       "item": "Test",
       "completed": false,
       "id": "eaa67489-f311-477b-897f-adfa9852004f"
+    },
+    {
+      "item": "New todo",
+      "completed": false,
+      "createdDate": "2019-02-06T21:33:08.125Z",
+      "id": "94b2608a-ad16-468f-85ee-6901dce3206f"
     }
   ]
 }
