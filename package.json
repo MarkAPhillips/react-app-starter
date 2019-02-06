@@ -8,8 +8,8 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "build": "webpack --progress --colors --config webpack.prod.js",
-    "start": "concurrently \"npm run api\" \"webpack-dev-server --port 5000 --inline --config webpack.dev.js  --history-api-fallback\"",
+    "build": "webpack --progress --colors --mode production",
+    "start": "concurrently \"npm run api\" \"webpack-dev-server --port 5000 --inline --mode=development --history-api-fallback\"",
     "test": "jest --no-cache",
     "update-snapshots": "jest --updateSnapshot",
     "test:dev": "jest --watchAll",
@@ -95,7 +95,6 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.29.2",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.14",
-    "webpack-merge": "^4.1.1"
+    "webpack-dev-server": "^3.1.14"
   }
 }

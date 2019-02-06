@@ -10,7 +10,7 @@
 
 ## Introduction
 
-React starter application using Webpack, Redux, Redux Sagas, Recompose, and Reselect.
+React starter application using Webpack, Redux, Redux Sagas, and Reselect.
 
 CSS using styled components.
 
