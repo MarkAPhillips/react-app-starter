@@ -12,7 +12,7 @@ function buildVendorBundle() {
 }
 
 config.entry = {
-  app: ['babel-regenerator-runtime', './src/'],
+  app: ['@babel/polyfill', './src/'],
   vendor: buildVendorBundle(),
 };
 

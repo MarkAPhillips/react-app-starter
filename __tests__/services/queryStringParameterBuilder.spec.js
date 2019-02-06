@@ -1,6 +1,5 @@
+import _ from 'lodash';
 import build from '../../src/services/queryStringParameterBuilder';
-
-const noop = () => {};
 
 describe('QuerystringparameterBuilder specs', () => {
   let result;
@@ -17,7 +16,7 @@ describe('QuerystringparameterBuilder specs', () => {
   });
 
   it('should throw an exception for invalid types passed', () => {
-    const invalidTypes = [{ id: 1, url: {} }, { id() {} }, { id: null }, [], noop];
+    const invalidTypes = [{ id: 1, url: {} }, { id() {} }, { id: null }, [], _.noop];
     invalidTypes.forEach((params) => {
       expect(() => build(params)).toThrow('Unable to build querystring invalid type passed');
     });

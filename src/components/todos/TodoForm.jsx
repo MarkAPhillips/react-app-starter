@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import { Input, PrimaryButton } from '../../assets/styles/components';
 import { InputPanel } from './styles';
 
-const defaultProps = { isDisabled: true };
+const defaultProps = {
+  isDisabled: true,
+  onSubmit: _.noop,
+  onChange: _.noop,
+};
 
 const propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   isDisabled: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 };
 
 export const TodoForm = ({ onSubmit, onChange, isDisabled }) => (
