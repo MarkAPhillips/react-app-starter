@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -75,9 +77,16 @@ class TodoContainerComponent extends Component {
     const { disabled } = this.props.form;
     return (
       <TodoContainerPanel>
-        <TodoForm onSubmit={this.handleSubmit} onChange={this.handleChange} isDisabled={disabled} />
-          <TodoList todos={this.props.todos} onStatusChange={this.handleStatusChange} />
-            <TodoFilter />
+        <TodoForm
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+          isDisabled={disabled}
+        />
+        <TodoList
+          todos={this.props.todos}
+          onStatusChange={this.handleStatusChange}
+        />
+        <TodoFilter />
       </TodoContainerPanel>
     );
   }
