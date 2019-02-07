@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { componentSnapshotShouldMatch, MockConnectedComponent } from '../../testUtils';
+import { componentSnapshotShouldMatch, mockConnectedComponent } from '../../testUtils';
 import { TodoList } from '../../../src/components/todos';
 
 
@@ -15,6 +15,6 @@ describe('TodoList specs', () => {
     const component =
       <TodoList todos={todos} onStatusChange={_.noop} />;
 
-    componentSnapshotShouldMatch(MockConnectedComponent(component));
+    componentSnapshotShouldMatch(mockConnectedComponent(component));
   });
 });

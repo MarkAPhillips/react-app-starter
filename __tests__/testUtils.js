@@ -17,7 +17,7 @@ export const setUpMockDate = () => {
 const mockStore = configureMockStore();
 const store = mockStore({});
 
-export const MockConnectedComponent = component => (
+export const mockConnectedComponent = component => (
   <Provider store={store}>
     {component}
   </Provider>);
