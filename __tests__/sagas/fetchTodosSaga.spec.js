@@ -4,7 +4,7 @@ import { fetchTodosSaga } from '../../src/sagas/fetchTodosSaga';
 import { LOAD_REQUEST, setTodos } from '../../src/reducers/todosReducer';
 import { getTodoItems } from '../../src/services/todoService';
 
-describe('FetchtodosSaga specs', () => {
+describe('fetchTodosSaga specs', () => {
   const watchGen = watchTodosSaga();
   const fetchGen = fetchTodosSaga();
   let expected;

@@ -13,7 +13,7 @@
     },
     {
       "item": "Another one dsadas",
-      "completed": false,
+      "completed": true,
       "createdDate": "2019-02-07T14:13:29.414Z",
       "id": "2966c23b-5e35-4060-a91b-eed669ec667d"
     }

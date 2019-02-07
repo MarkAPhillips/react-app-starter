@@ -4,7 +4,7 @@ import { createTodoItem } from '../../src/services/todoService';
 import { ADD_REQUEST, addTodo } from '../../src/reducers/todosReducer';
 import { todo } from '../../src/utils/modelBuilder';
 
-describe('CreateTodoSaga specs', () => {
+describe('createTodoSaga specs', () => {
   const gen = createTodoSaga();
   let expected;
   let result;

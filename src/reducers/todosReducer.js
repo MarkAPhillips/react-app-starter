@@ -73,6 +73,7 @@ export const requestLoad = actionCreator(LOAD_REQUEST);
 export const setTodos = actionCreator(LOAD_SUCCESS, 'payload');
 export const requestStatusChange = actionCreator(STATUS_CHANGE_REQUEST, 'payload');
 export const updateTodo = actionCreator(STATUS_CHANGE_SUCCESS, 'payload');
+export const deleteTodo = actionCreator(DELETE_SUCCESS, 'payload');
 
 // Selectors
 export const todosDefaultSelector = state => orderBy(values(state.todos.list), ['createdDate'], ['desc']);

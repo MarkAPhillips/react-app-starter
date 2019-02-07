@@ -1,3 +1,4 @@
-export { createTodoSaga } from './createTodoSaga';
-export { watchTodosSaga } from './fetchTodosSaga';
-export { updateTodoSaga } from './updateTodoSaga';
+export * from './createTodoSaga';
+export * from './fetchTodosSaga';
+export * from './updateTodoSaga';
+export * from './deleteTodoSaga';
