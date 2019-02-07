@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { TodoListItemPanel } from './styles';
-import { CheckBox } from '../shared';
+import { TodoListItemPanel, ContainerPanel } from './styles';
+import { CheckBox, Icon } from '../shared';
 
 const defaultProps = {
   todo: {},
-  handleStatusChange: _.noop,
+  onStatusChange: _.noop,
 };
 
 const propTypes = {
-  handleStatusChange: PropTypes.func,
+  onStatusChange: PropTypes.func,
   todo: PropTypes.shape({
     id: PropTypes.string,
     item: PropTypes.string,
@@ -30,17 +30,17 @@ export class TodoListItem extends Component {
     });
   }
   render() {
-    const { todo, handleStatusChange } = this.props;
+    const { todo, onStatusChange } = this.props;
     const { id, completed, item } = todo;
     return (
       <TodoListItemPanel
         onMouseEnter={this.handleMouseHover}
         onMouseLeave={this.handleMouseHover}
       >
-        <div>
-          <CheckBox id={id} completed={completed} onChange={handleStatusChange} item={item} />
-        </div>
-        {this.state.isHovering && <div><i className="fa fa-trash" aria-hidden="true" /></div>}
+        <ContainerPanel>
+          <CheckBox id={id} completed={completed} onChange={onStatusChange} item={item} />
+        </ContainerPanel>
+        {this.state.isHovering && <ContainerPanel><Icon iconClassName="fa fa-trash" /></ContainerPanel>}
       </TodoListItemPanel>
     );
   }

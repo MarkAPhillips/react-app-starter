@@ -1,1 +1,2 @@
-export { CheckBox } from './CheckBox';
+export * from './CheckBox';
+export * from './Icon';

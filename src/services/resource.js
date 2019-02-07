@@ -7,22 +7,10 @@ const httpRequest = (method, resource, params, headers, data) => {
   return api[method].call(null, ...(data == null ? args : [...args, data]));
 };
 
-/** GET items from a resource  */
-export function get(resource, params, headers) {
-  return httpRequest('get', resource, params, headers);
-}
+export const get = (resource, params, headers) => httpRequest('get', resource, params, headers);
 
-/** POST to a resource */
-export function post(resource, data, params, headers) {
-  return httpRequest('post', resource, params, headers, data);
-}
+export const post = (resource, data, params, headers) => httpRequest('post', resource, params, headers, data);
 
-/** PATCH a resource */
-export function patch(resource, data, params, headers) {
-  return httpRequest('patch', resource, params, headers, data);
-}
+export const patch = (resource, data, params, headers) => httpRequest('patch', resource, params, headers, data);
 
-/** DELETE A resource  */
-export function deleteItem(resource, params, headers) {
-  return httpRequest('delete', resource, params, headers);
-}
+export const deleteItem = (resource, params, headers) => httpRequest('delete', resource, params, headers);

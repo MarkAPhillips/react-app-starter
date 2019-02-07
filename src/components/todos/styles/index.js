@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { colours } from '../../../assets/styles/variables';
 
+export const ContainerPanel = styled.div``;
+
 export const TodoContainerPanel = styled.section`
   border-radius: 7px;
   background-color: ${colours.lightgrey};
@@ -23,3 +25,4 @@ export const TodoFilterPanel = styled.div``;
 export const InputPanel = styled.div`
   width: 60%;
 `;
+
