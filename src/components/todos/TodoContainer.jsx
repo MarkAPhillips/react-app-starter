@@ -71,7 +71,6 @@ class TodoContainerComponent extends Component {
   }
   handleStatusChange = (evt) => {
     const { checked, id } = evt.target;
-    console.log('Status changed', checked);
     this.props.handleStatusChange(id, checked);
   }
   render() {

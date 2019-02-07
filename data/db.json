@@ -1,21 +1,3 @@
 {
-  "todos": [
-    {
-      "item": "Test",
-      "completed": false,
-      "id": "eaa67489-f311-477b-897f-adfa9852004f"
-    },
-    {
-      "item": "New todo",
-      "completed": false,
-      "createdDate": "2019-02-06T21:33:08.125Z",
-      "id": "94b2608a-ad16-468f-85ee-6901dce3206f"
-    },
-    {
-      "item": "Another one dsadas",
-      "completed": true,
-      "createdDate": "2019-02-07T14:13:29.414Z",
-      "id": "2966c23b-5e35-4060-a91b-eed669ec667d"
-    }
-  ]
+  "todos": []
 }

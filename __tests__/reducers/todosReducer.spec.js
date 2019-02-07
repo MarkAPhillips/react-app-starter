@@ -73,7 +73,7 @@ describe('Todo reducer specs', () => {
     };
     state = todos(initialState, {
       type: DELETE_SUCCESS,
-      payload: { id: 1 },
+      payload: 1,
     });
     const expected = {
       list: {

@@ -1,7 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
-import { componentSnapshotShouldMatch } from '../../testUtils';
+import { componentSnapshotShouldMatch, MockConnectedComponent } from '../../testUtils';
 import { TodoList } from '../../../src/components/todos';
+
 
 describe('TodoList specs', () => {
   const todos = [{
@@ -11,7 +12,9 @@ describe('TodoList specs', () => {
   }];
 
   it('should render the component ', () => {
-    const component = <TodoList todos={todos} onStatusChange={_.noop} />;
-    componentSnapshotShouldMatch(component);
+    const component =
+      <TodoList todos={todos} onStatusChange={_.noop} />;
+
+    componentSnapshotShouldMatch(MockConnectedComponent(component));
   });
 });

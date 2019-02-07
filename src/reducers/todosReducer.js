@@ -38,10 +38,9 @@ export default function todos(state = initialState, action) {
       };
     }
     case DELETE_SUCCESS: {
-      const { id } = action.payload;
       return {
         ...state,
-        list: omit(state.list, id),
+        list: omit(state.list, action.payload),
       };
     }
     case LOAD_SUCCESS:
@@ -73,6 +72,7 @@ export const requestLoad = actionCreator(LOAD_REQUEST);
 export const setTodos = actionCreator(LOAD_SUCCESS, 'payload');
 export const requestStatusChange = actionCreator(STATUS_CHANGE_REQUEST, 'payload');
 export const updateTodo = actionCreator(STATUS_CHANGE_SUCCESS, 'payload');
+export const requestDelete = actionCreator(DELETE_REQUEST, 'payload');
 export const deleteTodo = actionCreator(DELETE_SUCCESS, 'payload');
 
 // Selectors
