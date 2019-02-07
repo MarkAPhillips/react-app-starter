@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox specs shoud render the component 1`] = `
+<div
+  className="styles__CheckBoxPanel-sc-1ld8q5g-1 eDpqIC"
+>
+  <input
+    className="CheckBox__InputCheckBox-wyidj3-0 iraKKj"
+    defaultChecked={false}
+    id="71cda7b6-749b-47ec-937c-dca827dcd218"
+    name="chkBox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    className="styles__CheckBoxLabel-sc-1ld8q5g-2 dNTPuQ"
+    htmlFor="chkBox"
+  >
+    <span
+      className="styles__TodoItemText-sc-1ld8q5g-0 kZOdgV"
+    >
+      Todo item
+    </span>
+  </label>
+</div>
+`;
