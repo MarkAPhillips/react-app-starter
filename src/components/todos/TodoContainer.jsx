@@ -77,12 +77,6 @@ class TodoContainerComponent extends Component {
     const { form, todos } = this.props;
     return (
       <TodoContainerPanel>
-        <TodoForm
-          onSubmit={this.handleSubmit}
-          onChange={this.handleChange}
-          isDisabled={form.disabled}
-          inputValue={this.state.inputValue}
-        />
         {!_.isEmpty(todos) &&
         <>
         <TodoList
@@ -91,6 +85,12 @@ class TodoContainerComponent extends Component {
         />
         <TodoFilter />
         </>}
+        <TodoForm
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+          isDisabled={form.disabled}
+          inputValue={this.state.inputValue}
+        />
       </TodoContainerPanel>
     );
   }

@@ -17,14 +17,23 @@ export const Button = styled.button`
   padding: 0.25em 0.5em;
   border-radius: 3px;
   cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export const PrimaryButton = Button.extend`
   background: ${colours.blue};
   color: ${colours.white};
-  border: 2px solid ${colours.blue};
+  border: 1px solid ${colours.blue};
+`;
+
+export const StandardButton = Button.extend`
+  background: transparent;
+  color: ${colours.black};
+  border: none;
   &:hover {
-    opacity: 0.8;
+    text-decoration: underline;
   }
 `;
 

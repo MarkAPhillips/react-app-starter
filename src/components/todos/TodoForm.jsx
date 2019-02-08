@@ -27,9 +27,8 @@ export const TodoForm = ({
         type="text"
         onChange={onChange}
         id="input-add-todo"
-        autoFocus
         value={inputValue}
-        placeholder="Enter text..."
+        placeholder="e.g. Complete Typescript course"
       />
     </InputPanel>
     <PrimaryButton type="submit" disabled={isDisabled}>Add</PrimaryButton>
