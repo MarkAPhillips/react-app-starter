@@ -1,10 +1,10 @@
 {
   "todos": [
     {
-      "item": "Complete typescript course",
+      "item": "New todo",
       "completed": false,
-      "createdDate": "2019-02-08T12:14:14.356Z",
-      "id": "770f1c34-9fdf-43be-9f70-33c09cf02c16"
+      "createdDate": "2019-02-08T12:31:19.248Z",
+      "id": "a606648c-ceec-4451-977a-4b38ccf438d4"
     }
   ]
 }

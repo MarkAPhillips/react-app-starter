@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { colours } from '../../../assets/styles/variables';
 
-export const ContainerPanel = styled.div``;
+export const ContainerPanel = styled.div`
+  &:hover {
+    cursor: ${props => (props.isAction ? 'pointer' : 'auto')};
+  }
+`;
 
 export const TodoContainerPanel = styled.section`
   border-radius: 7px;

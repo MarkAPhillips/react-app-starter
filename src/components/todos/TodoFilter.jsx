@@ -5,5 +5,5 @@ import { TodoFilterPanel } from './styles';
 export const TodoFilter = () =>
   (
     <TodoFilterPanel>
-      <StandardButton>Show completed</StandardButton>
+      <StandardButton>Hide completed</StandardButton>
     </TodoFilterPanel>);
