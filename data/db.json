@@ -1,3 +1,10 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "item": "New todo",
+      "completed": false,
+      "createdDate": "2019-02-08T11:39:27.798Z",
+      "id": "1f69f8a0-f43d-40ed-88ee-e9fdb295e4c6"
+    }
+  ]
 }

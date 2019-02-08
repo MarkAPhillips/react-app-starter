@@ -36,18 +36,20 @@ export class TodoListItemComponent extends Component {
     const { todo, handleDelete } = this.props;
     handleDelete(todo.id);
   }
-  handleMouseHover = () => {
-    this.setState({
-      isHovering: !this.state.isHovering,
-    });
+  handleMouseHover = (isHovering) => {
+    if (this.state.isHovering !== isHovering) {
+      this.setState({
+        isHovering,
+      });
+    }
   }
   render() {
     const { todo, onStatusChange } = this.props;
     const { id, completed, item } = todo;
     return (
       <TodoListItemPanel
-        onMouseEnter={this.handleMouseHover}
-        onMouseLeave={this.handleMouseHover}
+        onMouseEnter={() => this.handleMouseHover(true)}
+        onMouseLeave={() => this.handleMouseHover(false)}
       >
         <ContainerPanel>
           <CheckBox id={id} completed={completed} onChange={onStatusChange} item={item} />

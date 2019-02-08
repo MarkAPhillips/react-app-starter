@@ -32,7 +32,7 @@ export const PrimaryButton = Button.extend`
 export const Input = styled.input`
   font-size: 1em;
   margin: 0.5em;
-  padding: 0.25em 0.5em;
+  padding: 0.7em;
   border-radius: 3px;
   border: 1px solid ${colours.grey};
   width:100%;

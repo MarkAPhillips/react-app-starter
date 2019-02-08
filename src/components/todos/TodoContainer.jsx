@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import isEmpty from 'lodash/isEmpty';
+import _ from 'lodash';
 import { requestAdd, requestLoad, todosDefaultSelector, requestStatusChange } from '../../reducers/todosReducer';
 import { FORMS } from '../../constants';
 import { addForm, disableForm, formSelector } from '../../reducers/formReducer';
@@ -43,7 +43,7 @@ const mapDispatchToProps = dispatch => ({
   handleSubmit: value => dispatch(requestAdd(value)),
   handleStatusChange: (id, checked) => dispatch(requestStatusChange({ id, completed: checked })),
   handleChange: (value) => {
-    const disabled = !!isEmpty(value);
+    const disabled = !!_.isEmpty(value);
     dispatch(disableForm({ id: formId, disabled }));
   },
 });
@@ -52,7 +52,7 @@ class TodoContainerComponent extends Component {
   static propTypes = propTypes;
   static defaultProps = defaultProps
   state = {
-    inputField: '',
+    inputValue: '',
   }
   componentDidMount() {
     this.props.onLoad();
@@ -61,32 +61,36 @@ class TodoContainerComponent extends Component {
     const { value } = evt.target;
     this.props.handleChange(value);
     this.setState({
-      inputField: value,
+      inputValue: value,
     });
   }
   handleSubmit = (evt) => {
     evt.preventDefault();
-    this.props.handleSubmit(this.state.inputField);
-    this.setState({ inputField: '' });
+    this.props.handleSubmit(this.state.inputValue);
+    this.setState({ inputValue: '' });
   }
   handleStatusChange = (evt) => {
     const { checked, id } = evt.target;
     this.props.handleStatusChange(id, checked);
   }
   render() {
-    const { disabled } = this.props.form;
+    const { form, todos } = this.props;
     return (
       <TodoContainerPanel>
         <TodoForm
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
-          isDisabled={disabled}
+          isDisabled={form.disabled}
+          inputValue={this.state.inputValue}
         />
+        {!_.isEmpty(todos) &&
+        <>
         <TodoList
-          todos={this.props.todos}
+          todos={todos}
           onStatusChange={this.handleStatusChange}
         />
         <TodoFilter />
+        </>}
       </TodoContainerPanel>
     );
   }

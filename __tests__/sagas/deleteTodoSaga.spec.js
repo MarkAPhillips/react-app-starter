@@ -8,7 +8,7 @@ describe('deleteTodoSaga specs', () => {
   let expected;
   let result;
 
-  it('should wait for the user to delet a todo', () => {
+  it('should wait for the user to delete a todo', () => {
     expected = take(DELETE_REQUEST);
     result = gen.next().value;
     expect(result).toEqual(expected);
