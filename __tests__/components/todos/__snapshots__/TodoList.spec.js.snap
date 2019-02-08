@@ -13,7 +13,7 @@ exports[`TodoList specs should render the component  1`] = `
       className="styles__ContainerPanel-sc-6wg3e2-0 jBWfez"
     >
       <div
-        className="styles__CheckBoxPanel-sc-1ld8q5g-1 eDpqIC"
+        className="styles__CheckBoxPanel-sc-1ld8q5g-1 DnoIi"
       >
         <input
           className="CheckBox__InputCheckBox-wyidj3-0 iraKKj"

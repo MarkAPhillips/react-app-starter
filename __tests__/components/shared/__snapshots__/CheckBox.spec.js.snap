@@ -2,7 +2,7 @@
 
 exports[`CheckBox specs shoud render the component 1`] = `
 <div
-  className="styles__CheckBoxPanel-sc-1ld8q5g-1 eDpqIC"
+  className="styles__CheckBoxPanel-sc-1ld8q5g-1 DnoIi"
 >
   <input
     className="CheckBox__InputCheckBox-wyidj3-0 iraKKj"
