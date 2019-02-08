@@ -2,7 +2,7 @@
 
 exports[`CheckBox specs shoud render the component 1`] = `
 <div
-  className="styles__CheckBoxPanel-sc-1ld8q5g-1 DnoIi"
+  className="styles__CheckBoxPanel-sc-1ld8q5g-1 bBNDX"
 >
   <input
     className="CheckBox__InputCheckBox-wyidj3-0 iraKKj"
@@ -17,7 +17,7 @@ exports[`CheckBox specs shoud render the component 1`] = `
     htmlFor="chkBox"
   >
     <span
-      className="styles__TodoItemText-sc-1ld8q5g-0 kZOdgV"
+      className="styles__TodoItemText-sc-1ld8q5g-0 epSTAP"
     >
       Todo item
     </span>

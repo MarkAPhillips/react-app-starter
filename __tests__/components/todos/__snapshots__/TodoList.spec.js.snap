@@ -2,10 +2,10 @@
 
 exports[`TodoList specs should render the component  1`] = `
 <div
-  className="styles__TodoListPanel-sc-6wg3e2-3 fQUEYO"
+  className="styles__TodoListPanel-sc-6wg3e2-3 ldOdTP"
 >
   <div
-    className="styles__TodoListItemPanel-sc-6wg3e2-2 jqxRVf"
+    className="styles__TodoListItemPanel-sc-6wg3e2-2 klQQRJ"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
@@ -13,7 +13,7 @@ exports[`TodoList specs should render the component  1`] = `
       className="styles__ContainerPanel-sc-6wg3e2-0 jBWfez"
     >
       <div
-        className="styles__CheckBoxPanel-sc-1ld8q5g-1 DnoIi"
+        className="styles__CheckBoxPanel-sc-1ld8q5g-1 bBNDX"
       >
         <input
           className="CheckBox__InputCheckBox-wyidj3-0 iraKKj"
@@ -28,7 +28,7 @@ exports[`TodoList specs should render the component  1`] = `
           htmlFor="chkBox"
         >
           <span
-            className="styles__TodoItemText-sc-1ld8q5g-0 kZOdgV"
+            className="styles__TodoItemText-sc-1ld8q5g-0 epSTAP"
           >
             Todo item
           </span>
