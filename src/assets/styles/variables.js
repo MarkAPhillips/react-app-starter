@@ -2,8 +2,12 @@
 export const fonts = { size: '14px', family: 'Open Sans' };
 
 export const fontAwesome = {
-  family: 'FontAwesome',
-  content: { fa_square_o: '\f096', fa_checked_square_o: '\f046' },
+  family: 'Font Awesome 5 Free',
+  content: {
+    fa_square: '\f0c8',
+    fa_checked_square: '\f14a',
+    fa_minus_square: '\f146',
+  },
 };
 
 /* Colours */

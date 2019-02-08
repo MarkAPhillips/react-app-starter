@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colours } from './variables';
+import { colours, fontAwesome } from './variables';
 
 export const Main = styled.main`
     padding: 1em;
@@ -34,6 +34,12 @@ export const StandardButton = Button.extend`
   border: none;
   &:hover {
     text-decoration: underline;
+  }
+  &:before {
+    font-family: "${fontAwesome.family}";
+    content: "${fontAwesome.content.fa_minus_square}";
+    font-weight: 300;
+    margin-right: 4px;
   }
 `;
 

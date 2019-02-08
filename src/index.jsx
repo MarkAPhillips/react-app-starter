@@ -3,13 +3,19 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import App from './App';
 import { sagaInit } from './sagaInit';
 import baseStyles from './assets/styles/';
 import rootReducer from './reducers/';
 
+
 /* load base styles */
 baseStyles();
+
+/* add font-awesome icons */
+library.add(faTrashAlt);
 
 const sagaMiddleware = createSagaMiddleware();
 

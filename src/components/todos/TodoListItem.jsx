@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { TodoListItemPanel, ContainerPanel } from './styles';
-import { CheckBox, Icon } from '../shared';
+import { CheckBox } from '../shared';
 import { requestDelete } from '../../reducers/todosReducer';
 
 const mapDispatchToProps = dispatch => ({
@@ -54,7 +55,7 @@ export class TodoListItemComponent extends Component {
         <ContainerPanel>
           <CheckBox id={id} completed={completed} onChange={onStatusChange} item={item} />
         </ContainerPanel>
-        {this.state.isHovering && <ContainerPanel onClick={this.handleDelete} isAction> <Icon iconClassName="fa fa-trash fa-lg" size="sm" /></ContainerPanel>}
+        {this.state.isHovering && <ContainerPanel onClick={this.handleDelete} isAction> <FontAwesomeIcon icon="trash-alt" /></ContainerPanel>}
       </TodoListItemPanel>
     );
   }

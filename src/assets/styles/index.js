@@ -1,6 +1,6 @@
 import styledNormalize from 'styled-normalize';
 import { injectGlobal } from 'styled-components';
-import 'font-awesome/css/font-awesome.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { fonts, colours } from './variables';
 
 import externalFont from '../../assets/fonts/OpenSans-Regular-webfont.woff';

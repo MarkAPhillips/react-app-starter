@@ -12,14 +12,16 @@ export const CheckBoxPanel = styled.div`
   > input { opacity: 0; }
   > input + label {
     &:before {
-      font-family: ${fontAwesome.family};
-      content: "${fontAwesome.content.fa_square_o}";
+      font-family: "${fontAwesome.family}";
+      content: "${fontAwesome.content.fa_square}";
+      font-weight: 300;
+      font-size: 1.1em;
       margin-left: -10px;
     }
   }
   > input:checked + label {
     &:before {
-      content: "${fontAwesome.content.fa_checked_square_o}";
+      content: "${fontAwesome.content.fa_checked_square}";
     }
   }
 `;
