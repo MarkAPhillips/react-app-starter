@@ -54,7 +54,7 @@ export class TodoListItemComponent extends Component {
         <ContainerPanel>
           <CheckBox id={id} completed={completed} onChange={onStatusChange} item={item} />
         </ContainerPanel>
-        {this.state.isHovering && <ContainerPanel onClick={this.handleDelete}> <Icon iconClassName="fa fa-trash" /></ContainerPanel>}
+        {this.state.isHovering && <ContainerPanel onClick={this.handleDelete}> <Icon iconClassName="fa fa-trash fa-lg" size="sm" /></ContainerPanel>}
       </TodoListItemPanel>
     );
   }

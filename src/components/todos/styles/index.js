@@ -24,6 +24,7 @@ export const TodoListPanel = styled.div`
   padding: 0.5em;
   background-color: ${colours.white};
   margin: 12px 0;
+  border-radius: 3px;
 `;
 
 export const TodoFilterPanel = styled.div``;
