@@ -10,7 +10,7 @@ exports[`TodoList specs should render the component  1`] = `
     onMouseLeave={[Function]}
   >
     <div
-      className="styles__ContainerPanel-sc-6wg3e2-0 igQoLx"
+      className="styles__ContainerPanel-sc-6wg3e2-0 jBWfez"
     >
       <div
         className="styles__CheckBoxPanel-sc-1ld8q5g-1 eDpqIC"
