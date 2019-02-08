@@ -6,14 +6,14 @@ export const fontAwesome = {
   content: {
     fa_square: '\f0c8',
     fa_checked_square: '\f14a',
-    fa_minus_square: '\f146',
+    fa_clipboard_check: '\f0ae',
   },
 };
 
 /* Colours */
 export const colours = {
   white: '#fff',
-  black: '000',
+  black: '#000',
   blue: '#428bca',
   grey: '#b8b8b8',
   lightgrey: '#f9f6f6',

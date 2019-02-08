@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colours, fontAwesome } from './variables';
+import { colours } from './variables';
 
 export const Main = styled.main`
     padding: 1em;
@@ -7,6 +7,10 @@ export const Main = styled.main`
 
 export const Header = styled.h1`
     font-size: 1.5em;
+`;
+
+export const Subheader = styled.h2`
+    font-size: 1.2em;
 `;
 
 export const Section = styled.section``;
@@ -27,22 +31,6 @@ export const PrimaryButton = Button.extend`
   color: ${colours.white};
   border: 1px solid ${colours.blue};
 `;
-
-export const StandardButton = Button.extend`
-  background: transparent;
-  color: ${colours.black};
-  border: none;
-  &:hover {
-    text-decoration: underline;
-  }
-  &:before {
-    font-family: "${fontAwesome.family}";
-    content: "${fontAwesome.content.fa_minus_square}";
-    font-weight: 300;
-    margin-right: 4px;
-  }
-`;
-
 
 export const Input = styled.input`
   font-size: 1em;

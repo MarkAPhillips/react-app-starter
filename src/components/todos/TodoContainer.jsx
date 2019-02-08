@@ -8,7 +8,8 @@ import { requestAdd, requestLoad, todosDefaultSelector, requestStatusChange } fr
 import { FORMS } from '../../constants';
 import { addForm, disableForm, formSelector } from '../../reducers/formReducer';
 import { TodoContainerPanel } from './styles';
-import { TodoFilter, TodoForm, TodoList } from './';
+import { Subheader } from '../../assets/styles/components';
+import { TodoForm, TodoList } from './';
 
 const defaultProps = { todos: {}, form: {} };
 const formId = 1;
@@ -79,11 +80,11 @@ class TodoContainerComponent extends Component {
       <TodoContainerPanel>
         {!_.isEmpty(todos) &&
         <>
+        <Subheader>Inbox</Subheader>
         <TodoList
           todos={todos}
           onStatusChange={this.handleStatusChange}
         />
-        <TodoFilter />
         </>}
         <TodoForm
           onSubmit={this.handleSubmit}

@@ -15,13 +15,10 @@ export const TodoContainerPanel = styled.section`
 
 export const TodoListItemPanel = styled.div`
   display: flex;
-  padding: 0.2em;
+  padding: 0.5em;
   align-items: center;
   width: 90%;
   justify-content: space-between;
-  &:hover {
-    opacity: 0.7;
-  }
 `;
 
 export const TodoListPanel = styled.div`
@@ -29,6 +26,17 @@ export const TodoListPanel = styled.div`
   background-color: ${colours.white};
   margin: 12px 0;
   border-radius: 3px;
+  > div {
+    border-bottom: 1px solid ${colours.lightgrey};
+    margin-bottom: 8px;
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    } 
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 `;
 
 export const TodoFilterPanel = styled.div``;
