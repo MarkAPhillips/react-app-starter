@@ -5,9 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {};
+const excludedPackages = ['express', 'express-graphql'];
 
 function buildVendorBundle() {
-  return pullAll(Object.keys(pkg.dependencies), ['font-awesome']);
+  return pullAll(Object.keys(pkg.dependencies), excludedPackages);
 }
 
 config.entry = {
@@ -16,7 +17,7 @@ config.entry = {
 };
 
 config.resolve = {
-  extensions: ['.js', '.jsx'],
+  extensions: ['.mjs', '.js', '.jsx'],
 };
 
 config.output = {
@@ -36,6 +37,8 @@ config.plugins.push(new CleanWebpackPlugin(['./dist']));
 config.plugins.push(new HtmlWebpackPlugin({
   template: './src/index.html',
 }));
+
+config.externals = ['tls', 'net', 'fs'];
 
 config.optimization = {
   splitChunks: {

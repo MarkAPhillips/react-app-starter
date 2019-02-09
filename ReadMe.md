@@ -22,9 +22,18 @@ CI provided by circleci.com
 
 ## Prerequisites
 
-Windows users:
+Install Node and Docker
 
-```npm i -g -p windows-build-tools```
+### Running with Docker
+
+Create image
+
+```docker build . -t react-app-starter```
+
+Run container image
+
+```docker run --rm -it -p 8080:8080 react-app-starter:latest```
+
 
 ## Installation
 
@@ -55,3 +64,13 @@ Run tests with coverage:
 ## e2e Tests
 
 ``` npm run e2e ```
+
+### Running with Docker
+
+Create image
+
+```docker build . -t react-app-starter```
+
+Run API Server
+
+```docker run --rm -it -p 8080:8080 react-app-starter:latest```
