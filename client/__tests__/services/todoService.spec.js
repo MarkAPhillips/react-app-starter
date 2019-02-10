@@ -4,9 +4,9 @@ import * as resource from '../../src/services/resource';
 describe('TodoService specs', () => {
   it('should verify post is called with the correct arguments', () => {
     resource.post = jest.fn();
-    const todoItem = { todo: 'Write a unit test', completed: false, id: 1 };
-    createTodoItem(todoItem);
-    expect(resource.post).toHaveBeenCalledWith('todos/', todoItem);
+    const payload = 'Write a unit test';
+    createTodoItem(payload);
+    expect(resource.post).toHaveBeenCalledWith('todos/', payload);
   });
 
   it('should verify get is called with the correct arguments', () => {

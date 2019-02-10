@@ -2,7 +2,7 @@ import { post, patch, get, deleteItem } from './resource';
 
 const resource = 'todos/';
 
-export const createTodoItem = todoItem => post(resource, todoItem);
+export const createTodoItem = item => post(resource, item);
 
 export const getTodoItems = () => get(resource);
 

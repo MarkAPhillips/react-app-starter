@@ -22,18 +22,23 @@ CI provided by circleci.com
 
 ## Prerequisites
 
-Install Node and Docker
+Install Docker
 
 ### Running with Docker
 
-Create image
+Create image for client
 
+```cd client```
 ```docker build . -t react-app-starter```
+
+Create image for server
+
+```cd server```
+```docker build . -t react-app-api```
 
 Run container image
 
-```docker run --rm -it -p 8080:8080 react-app-starter:latest```
-
+```docker-compose up```
 
 ## Installation
 

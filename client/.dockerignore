@@ -1,4 +1,3 @@
-.git
 node_modules
 dist
 _tests_
@@ -6,3 +5,5 @@ cypress
 .circleci
 *.log
 *.md
+Dockerfile
+.dockerignore
