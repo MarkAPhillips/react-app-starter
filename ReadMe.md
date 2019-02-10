@@ -10,7 +10,7 @@
 
 ## Introduction
 
-React starter application using Webpack, Redux, Redux Sagas, and Reselect.
+React starter application using React Apollo Client for GraphQL (WIP)
 
 CSS using styled components.
 
