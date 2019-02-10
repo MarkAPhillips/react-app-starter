@@ -1,6 +1,7 @@
 import express from 'express';
 import graphqlHTTP  from 'express-graphql';
 import uuidv4 from 'uuid/v4';
+import cors from 'cors';
 import buildSchema from './utils/req';
 import { loadFile } from './utils/fileHandler';
 
@@ -45,6 +46,8 @@ const root = {
 };
 
 const app = express();
+app.use(cors());
+
 app.use('/graphql', graphqlHTTP({
   schema,
   rootValue: root,
