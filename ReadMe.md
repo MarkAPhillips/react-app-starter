@@ -22,7 +22,7 @@ CI provided by circleci.com
 
 ## Prerequisites
 
-Install Docker
+Install [Docker](https://www.docker.com/get-started)
 
 ### Running with Docker
 
@@ -40,17 +40,6 @@ Run container image
 
 ```docker-compose up```
 
-## Installation
-
-```npm i```
-
-## Development
-
-``` npm start ```
-
-## CI Build
-
-```npm run build```
 
 ## Unit Tests
 
@@ -69,13 +58,3 @@ Run tests with coverage:
 ## e2e Tests
 
 ``` npm run e2e ```
-
-### Running with Docker
-
-Create image
-
-```docker build . -t react-app-starter```
-
-Run API Server
-
-```docker run --rm -it -p 8080:8080 react-app-starter:latest```
