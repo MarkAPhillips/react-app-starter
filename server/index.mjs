@@ -2,36 +2,28 @@ import express from 'express';
 import graphqlHTTP  from 'express-graphql';
 import uuidv4 from 'uuid/v4';
 import cors from 'cors';
-import buildSchema from './utils/req';
+import _ from 'lodash';
+import { schema } from './graphql/schema';
 import { loadFile } from './utils/fileHandler';
-
-// Construct a schema, using GraphQL schema language
-const schema = buildSchema(`
-  type Todo {
-    item: String!,
-    completed: Boolean!,
-    createdDate: String!
-    id: ID!
-  }
-
-  input TodoInput {
-    item: String,
-  }
-
-  type Query {
-    todos: [Todo]
-  }
-
-  type Mutation {
-     createTodo(input: TodoInput): Todo
-  }
-`);
 
 const data = loadFile('./data/db.json');
 
 // The root provides a resolver function for each API endpoint
 const root = {
   todos: () => data.todos,
+  deleteTodo: ( { input }) => {
+    const { id } = input;
+    return _.remove(data.todos, item => item.id === id);
+  },
+  updateTodo: ( { input }) => {
+    const { item, completed, id } = input;
+    return data.todos.map(todo => { 
+        if(todo.id === id ) {
+          return { ...todo, item, completed }
+        }
+        return todo;
+      });
+  },
   createTodo: ( { input }) => {
     const { item } = input;
     const todo = {

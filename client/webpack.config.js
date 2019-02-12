@@ -67,6 +67,11 @@ config.module = {
       loader: 'html-loader',
     },
     {
+      test: /\.(graphql|gql)$/,
+      loader: 'graphql-tag/loader',
+      exclude: /node_modules/,
+    },
+    {
       test: /\.jsx?$/,
       loader: 'babel-loader',
       exclude: /node_modules/,

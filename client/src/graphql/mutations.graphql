@@ -1,0 +1,14 @@
+mutation createTodo($text:String!){
+  createTodo(input: {
+    item: $text,
+  }) {
+    id,
+    item,
+    createdDate,
+    completed,
+  }
+}
+
+mutation updateTodo
+
+mutation deleteTodo

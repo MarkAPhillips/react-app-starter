@@ -1,19 +1,19 @@
 {
-  "name": "server",
+  "name": "react-app-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "GraphQL server running on Express",
   "main": "index.js",
   "scripts": {
     "start": "node --experimental-modules index.mjs"
   },
-  "keywords": [],
   "author": "Mark Phillips",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "express-graphql": "^0.7.1",
-    "graphql": "^14.0.2",
-    "uuid": "^3.3.2"
+    "cors": "2.8.5",
+    "express": "4.16.4",
+    "express-graphql": "0.7.1",
+    "graphql": "14.0.2",
+    "lodash": "4.17.11",
+    "uuid": "3.3.2"
   }
 }

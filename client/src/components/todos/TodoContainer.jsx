@@ -2,11 +2,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import _ from 'lodash';
-import { requestAdd, requestLoad, todosDefaultSelector, requestStatusChange } from '../../reducers/todosReducer';
 import { FORMS } from '../../constants';
-import { addForm, disableForm, formSelector } from '../../reducers/formReducer';
 import { TodoContainerPanel } from './styles';
 import { Subheader } from '../../assets/styles/components';
 import { TodoForm, TodoList } from './';

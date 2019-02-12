@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { connect } from 'react-redux';
 import { TodoListItemPanel, ContainerPanel } from './styles';
 import { CheckBox } from '../shared';
-import { requestDelete } from '../../reducers/todosReducer';
 
 const mapDispatchToProps = dispatch => ({
   handleDelete: id => dispatch(requestDelete({ id })),

@@ -1,0 +1,9 @@
+query getAllTodos {
+  todos {
+    id
+    item
+    createdDate
+    completed
+  }
+}
+
