@@ -8,21 +8,20 @@ import { loadFile } from './utils/fileHandler';
 
 const data = loadFile('./data/db.json');
 
-// The root provides a resolver function for each API endpoint
+// TODO:  Requires rework as currently mutates the array
+// Need to implement persistent back end layer
 const root = {
   todos: () => data.todos,
-  deleteTodo: ( { input }) => {
-    const { id } = input;
-    return _.remove(data.todos, item => item.id === id);
+  deleteTodo: ( { id }) =>  {
+    _.remove(data.todos, item => item.id === id);
+    return true;
   },
-  updateTodo: ( { input }) => {
-    const { item, completed, id } = input;
-    return data.todos.map(todo => { 
-        if(todo.id === id ) {
-          return { ...todo, item, completed }
-        }
-        return todo;
-      });
+  updateTodo: ( { id, input }) => {
+    const { item, completed } = input;
+    const todo = data.todos.find(item => item.id === id);
+    todo.item = item;
+    todo.completed = completed;
+    return todo;
   },
   createTodo: ( { input }) => {
     const { item } = input;
