@@ -16,8 +16,6 @@ CSS using styled components.
 
 Unit tests using Jest.
 
-e2e tests using Cypress.
-
 CI provided by circleci.com
 
 ## Prerequisites
@@ -26,20 +24,13 @@ Install [Docker](https://www.docker.com/get-started)
 
 ### Running with Docker
 
-Create image for client
-
-```cd client```
-```docker build . -t react-app-starter```
-
-Create image for server
-
-```cd server```
-```docker build . -t react-app-api```
-
-Run container image
+Run container and build images
 
 ```docker-compose up```
 
+Stopping and removing containers
+
+```docker-compose down ```
 
 ## Unit Tests
 
@@ -54,7 +45,3 @@ Run tests in watch mode:
 Run tests with coverage:
 
 ```npm test:coverage```
-
-## e2e Tests
-
-``` npm run e2e ```

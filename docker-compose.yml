@@ -3,6 +3,7 @@ services:
     client:
         image: react-app-starter:latest
         restart: always
+        build: ./client
         ports:
             - "8080:8080"
         volumes:
@@ -13,8 +14,9 @@ services:
     server:
         image: react-app-api:latest
         restart: always
+        build: ./server
         ports:
             - "4000:4000"
         volumes:
-            - ./api:/api
+            - ./api
             - /api/node_modules

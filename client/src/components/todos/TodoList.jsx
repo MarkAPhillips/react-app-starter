@@ -18,18 +18,18 @@ export const TodoList = ({ onStatusChange }) =>
   (
     <Query query={getAllTodos}>
       {({ loading, error, data }) => {
-        if (loading) return 'Loading...';
-        if (error) return `Error! ${error.message}`;
-        return (
-          <TodoListPanel>
-            {data.todos.map(todo => (<TodoListItem
-              key={todo.id}
-              todo={todo}
-              onStatusChange={onStatusChange}
-            />))}
-          </TodoListPanel>
-        );
-      }};
+      if (loading) return 'Loading...';
+      if (error) return `Error! ${error.message}`;
+      return (
+        <TodoListPanel>
+          {data.todos.map(todo => (<TodoListItem
+            key={todo.id}
+            todo={todo}
+            onStatusChange={onStatusChange}
+          />))}
+        </TodoListPanel>
+      );
+    }}
     </Query>
   );
 

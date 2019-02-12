@@ -27,7 +27,6 @@ config.output = {
   publicPath: '/',
 };
 
-config.devtool = 'source-map';
 config.plugins = [];
 
 /* Cleans the directory */
@@ -51,6 +50,11 @@ config.optimization = {
       },
     },
   },
+};
+
+// Required for docker reload
+config.watchOptions = {
+  poll: true,
 };
 
 config.module = {

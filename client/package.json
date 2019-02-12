@@ -13,8 +13,7 @@
     "test": "jest --no-cache",
     "update-snapshots": "jest --updateSnapshot",
     "test:dev": "jest --watchAll",
-    "test:coverage": "jest --coverage",
-    "e2e": "cypress open"
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -53,7 +52,6 @@
     "react-apollo": "^2.4.1",
     "react-dom": "^16.8.1",
     "react-router": "^4.2.0",
-    "reselect": "^3.0.1",
     "styled-components": "^2.4.0",
     "styled-normalize": "^2.3.0"
   },
