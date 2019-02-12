@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { TodoForm } from '../../../src/components/todos';
 
-describe('TodoForm Item specs', () => {
+xdescribe('TodoForm Item specs', () => {
   it('should render the component ', () => {
     const wrapper = shallow(<TodoForm />);
     expect(wrapper.exists()).toEqual(true);

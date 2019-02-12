@@ -1,7 +1,4 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
-import configureMockStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
 
 export const componentSnapshotShouldMatch = (component) => {
   const tree = renderer.create(component).toJSON();
@@ -13,11 +10,3 @@ export const setUpMockDate = () => {
   Date.now = jest.fn(() =>
     new Date(Date.UTC(mockDate.year, mockDate.month, mockDate.day)).valueOf());
 };
-
-const mockStore = configureMockStore();
-const store = mockStore({});
-
-export const mockConnectedComponent = component => (
-  <Provider store={store}>
-    {component}
-  </Provider>);
