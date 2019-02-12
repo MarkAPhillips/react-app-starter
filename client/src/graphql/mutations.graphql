@@ -9,6 +9,22 @@ mutation createTodo($text:String!){
   }
 }
 
-mutation updateTodo
+mutation updateTodo($id: ID!, $text:String!){
+  updateTodo(
+    id: $id
+    input: {
+    item: $text,
+    completed:false,
+  }) {
+    id,
+    item,
+    createdDate,
+    completed,
+  }
+}
 
-mutation deleteTodo
+mutation deleteTodo($id: ID!){
+  deleteTodo(
+    id: $id
+)
+}

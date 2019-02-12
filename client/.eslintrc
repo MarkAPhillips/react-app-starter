@@ -2,11 +2,11 @@
   "extends": "airbnb",
   "env": {
     "browser": true,
-    "jest/globals": true
+    "jest/globals": true,
   },
   "parser": "babel-eslint",
   "plugins": [
-    "jest", "babel"
+    "jest", "babel", "graphql"
   ],
   "globals": {
     "_": true,
@@ -15,7 +15,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "webpack.dev.js"
+        "config": "webpack.config.js"
       }
     }
   },

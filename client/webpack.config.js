@@ -17,7 +17,7 @@ config.entry = {
 };
 
 config.resolve = {
-  extensions: ['.mjs', '.js', '.jsx'],
+  extensions: ['.mjs', '.js', '.jsx', '.graphql', '.gql'],
 };
 
 config.output = {

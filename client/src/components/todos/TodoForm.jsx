@@ -5,7 +5,6 @@ import { Input, PrimaryButton } from '../../assets/styles/components';
 import { InputPanel } from './styles';
 
 const defaultProps = {
-  isDisabled: true,
   inputValue: '',
   onSubmit: _.noop,
   onChange: _.noop,
@@ -13,13 +12,12 @@ const defaultProps = {
 
 const propTypes = {
   onSubmit: PropTypes.func,
-  isDisabled: PropTypes.bool,
   onChange: PropTypes.func,
   inputValue: PropTypes.string,
 };
 
 export const TodoForm = ({
-  onSubmit, onChange, isDisabled, inputValue,
+  onSubmit, onChange, inputValue,
 }) => (
   <form onSubmit={onSubmit}>
     <InputPanel>
@@ -31,7 +29,7 @@ export const TodoForm = ({
         placeholder="e.g. Complete Typescript course"
       />
     </InputPanel>
-    <PrimaryButton type="submit" disabled={isDisabled}>Add</PrimaryButton>
+    <PrimaryButton type="submit" >Add</PrimaryButton>
   </form>
 );
 
