@@ -39,6 +39,10 @@ config.plugins.push(new HtmlWebpackPlugin({
 
 config.externals = ['tls', 'net', 'fs'];
 
+config.devServer = {
+  contentBase: './dist',
+};
+
 config.optimization = {
   splitChunks: {
     cacheGroups: {

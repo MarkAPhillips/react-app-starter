@@ -1,9 +1,12 @@
-# React Application
-FROM node:10.15.0
-RUN mkdir -p /usr/api
-WORKDIR /usr/api
-COPY package*.json /usr/api/
+# GraphQL Application
+FROM node:10.15-alpine
+LABEL maintainer="Mark Phillips"
+
+RUN mkdir -p /usr/gql
+WORKDIR /usr/gql
+COPY package*.json /usr/gql/
 RUN npm i
-COPY . /usr/api
+
+COPY . /usr/gql
 EXPOSE 4000
 CMD [ "npm", "start" ]

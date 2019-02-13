@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { Query } from 'react-apollo';
 import { getAllTodos } from '../../graphql/queries.graphql';
 import { TodoListItem } from './';
+import { Subheader } from '../../assets/styles/components';
 import { TodoListPanel } from './styles';
 
 const defaultProps = {
@@ -20,14 +21,18 @@ export const TodoList = ({ onStatusChange }) =>
       {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return `Error! ${error.message}`;
+      if (!_.isEmpty(data.todos)) return null;
       return (
-        <TodoListPanel>
-          {data.todos.map(todo => (<TodoListItem
-            key={todo.id}
-            todo={todo}
-            onStatusChange={onStatusChange}
-          />))}
-        </TodoListPanel>
+        <Fragment>
+          <Subheader>Inbox</Subheader>
+          <TodoListPanel>
+            {data.todos.map(todo => (<TodoListItem
+              key={todo.id}
+              todo={todo}
+              onStatusChange={onStatusChange}
+            />))}
+          </TodoListPanel>
+        </Fragment>
       );
     }}
     </Query>

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack --progress --colors --mode production",
-    "start": "webpack-dev-server --host 0.0.0.0 --inline --mode=development --history-api-fallback",
+    "start": "webpack-dev-server --host 0.0.0.0 --mode=development --history-api-fallback --open",
     "test": "jest --no-cache",
     "update-snapshots": "jest --updateSnapshot",
     "test:dev": "jest --watchAll",

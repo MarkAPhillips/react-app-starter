@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { TodoContainerPanel } from './styles';
-import { Subheader } from '../../assets/styles/components';
 import { TodoForm, TodoList } from './';
 
 export const TodoContainer = () => {
@@ -25,7 +24,6 @@ export const TodoContainer = () => {
 
   return (
     <TodoContainerPanel>
-      <Subheader>Inbox</Subheader>
       <TodoList
         onStatusChange={handleStatusChange}
       />
