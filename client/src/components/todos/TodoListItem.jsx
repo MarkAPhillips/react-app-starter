@@ -20,12 +20,16 @@ const propTypes = {
 };
 
 export const TodoListItem = ({ todo, onStatusChange }) => {
-  const { isHovering, setHoveringState } = useState(false);
+  const [isHovering, setHoveringState] = useState(false);
 
   const handleMouseHover = (currentHovering) => {
     if (isHovering !== currentHovering) {
-      setHoveringState(currentHovering);
+      setHoveringState(() => currentHovering);
     }
+  };
+
+  // TODO replace with delete mutation
+  const handleDelete = () => {
   };
 
   const { id, completed, item } = todo;
@@ -38,7 +42,7 @@ export const TodoListItem = ({ todo, onStatusChange }) => {
       <ContainerPanel>
         <CheckBox id={id} completed={completed} onChange={onStatusChange} item={item} />
       </ContainerPanel>
-      {isHovering && <ContainerPanel onClick={this.handleDelete} isAction> <FontAwesomeIcon icon="trash-alt" /></ContainerPanel>}
+      {isHovering && <ContainerPanel onClick={handleDelete} isAction> <FontAwesomeIcon icon="trash-alt" /></ContainerPanel>}
     </TodoListItemPanel>
   );
 };

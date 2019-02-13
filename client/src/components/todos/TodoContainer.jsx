@@ -3,9 +3,8 @@ import { TodoContainerPanel } from './styles';
 import { Subheader } from '../../assets/styles/components';
 import { TodoForm, TodoList } from './';
 
-
 export const TodoContainer = () => {
-  const { inputValue, setInputValue } = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   const handleChange = (evt) => {
     const { value } = evt.target;
