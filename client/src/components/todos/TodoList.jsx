@@ -21,7 +21,7 @@ export const TodoList = ({ onStatusChange }) =>
       {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return `Error! ${error.message}`;
-      if (!_.isEmpty(data.todos)) return null;
+      if (_.isEmpty(data.todos)) return null;
       return (
         <Fragment>
           <Subheader>Inbox</Subheader>

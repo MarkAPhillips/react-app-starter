@@ -4,14 +4,17 @@ import _ from 'lodash';
 import { Mutation } from 'react-apollo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { deleteTodo } from '../../graphql/mutations.graphql';
-import { getTodos } from '../../graphql/queries.graphql';
+import { getAllTodos } from '../../graphql/queries.graphql';
 import { TodoListItemPanel, ContainerPanel } from './styles';
 import { CheckBox } from '../shared';
+import { convertQueryToString } from '../../graphql/gqlHelpers';
 
 const defaultProps = {
   todo: {},
   onStatusChange: _.noop,
 };
+
+const query = convertQueryToString(getAllTodos);
 
 const propTypes = {
   onStatusChange: PropTypes.func,
@@ -51,16 +54,16 @@ export const TodoListItem = ({ todo, onStatusChange }) => {
           mutation={deleteTodo}
           variables={{ id }}
           update={(cache) => {
-            const { todos } = cache.readQuery({ query: getTodos });
+            const { todos } = cache.readQuery({ query });
             cache.writeQuery({
-              query: getTodos,
-              data: { todos: _.remove(todos, x => x.id === id) },
+              query,
+              data: { todos: todos.filter(e => e.id !== id) },
             });
           }}
         >
-          { mutation => (
+          { deleteMutation => (
             <ContainerPanel
-              onClick={mutation}
+              onClick={deleteMutation}
               isAction
             > <FontAwesomeIcon icon="trash-alt" />
             </ContainerPanel>) }

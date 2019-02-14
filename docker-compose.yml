@@ -7,7 +7,7 @@ services:
         ports:
             - "8080:8080"
         volumes: 
-            - ./client:/usr/src/app/
+            - ./client:/usr/src/app/:rw,cached
         depends_on:
             - server
     server:
@@ -15,6 +15,6 @@ services:
         restart: always
         build: ./server
         volumes: 
-            - ./server:/usr/gql/
+            - ./server:/usr/gql/:rw,cached
         ports:
             - "4000:4000"

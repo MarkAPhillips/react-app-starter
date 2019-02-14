@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack --progress --colors --mode production",
-    "start": "webpack-dev-server --host 0.0.0.0 --mode=development --history-api-fallback --open",
+    "start": "webpack-dev-server --host 0.0.0.0 --mode=development --history-api-fallback",
     "test": "jest --no-cache",
     "update-snapshots": "jest --updateSnapshot",
     "test:dev": "jest --watchAll",
@@ -43,6 +43,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.7.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "apollo-boost": "^0.1.27",
+    "apollo-cache-inmemory": "^1.4.3",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
     "lodash": "^4.17.11",
