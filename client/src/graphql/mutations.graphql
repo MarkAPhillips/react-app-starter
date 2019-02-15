@@ -9,12 +9,12 @@ mutation createTodo($text:String!){
   }
 }
 
-mutation updateTodo($id: ID!, $text:String!){
+mutation updateTodo($id: ID!, $text:String, $completed:Boolean){
   updateTodo(
     id: $id
     input: {
     item: $text,
-    completed:false,
+    completed: $completed,
   }) {
     id,
     item,

@@ -13,8 +13,8 @@ export const schema = buildSchema(`
     }
 
     input UpdateTodoInput {
-        item: String!,
-        completed: Boolean!,
+        item: String,
+        completed: Boolean,
     }
 
 

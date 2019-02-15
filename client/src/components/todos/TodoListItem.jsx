@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import { Mutation } from 'react-apollo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { deleteTodo } from '../../graphql/mutations.graphql';
@@ -11,13 +10,11 @@ import { convertQueryToString } from '../../graphql/gqlHelpers';
 
 const defaultProps = {
   todo: {},
-  onStatusChange: _.noop,
 };
 
 const query = convertQueryToString(getAllTodos);
 
 const propTypes = {
-  onStatusChange: PropTypes.func,
   todo: PropTypes.shape({
     id: PropTypes.string,
     item: PropTypes.string,
@@ -25,7 +22,7 @@ const propTypes = {
   }),
 };
 
-export const TodoListItem = ({ todo, onStatusChange }) => {
+export const TodoListItem = ({ todo }) => {
   const [isHovering, setHoveringState] = useState(false);
 
   const handleMouseHover = (currentHovering) => {
@@ -45,7 +42,6 @@ export const TodoListItem = ({ todo, onStatusChange }) => {
         <CheckBox
           id={id}
           completed={completed}
-          onChange={onStatusChange}
           item={item}
         />
       </ContainerPanel>

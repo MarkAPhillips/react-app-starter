@@ -19,8 +19,12 @@ const root = {
   updateTodo: ( { id, input }) => {
     const { item, completed } = input;
     const todo = data.todos.find(item => item.id === id);
-    todo.item = item;
-    todo.completed = completed;
+    if(item != null) {
+      todo.item = item;
+    }
+    if(completed != null) {
+      todo.completed = completed;
+    }
     return todo;
   },
   createTodo: ( { input }) => {

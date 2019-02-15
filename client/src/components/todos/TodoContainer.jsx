@@ -17,16 +17,9 @@ export const TodoContainer = () => {
     setInputValue('');
   };
 
-  const handleStatusChange = (evt) => {
-    const { checked, id } = evt.target;
-    console.log('handleStatusChage', checked, id);
-  };
-
   return (
     <TodoContainerPanel>
-      <TodoList
-        onStatusChange={handleStatusChange}
-      />
+      <TodoList />
       <TodoForm
         onSubmit={handleSubmit}
         onChange={handleChange}
