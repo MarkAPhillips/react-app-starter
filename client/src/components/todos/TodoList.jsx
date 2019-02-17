@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 import _ from 'lodash';
 import { Query } from 'react-apollo';
-import { getAllTodos } from '../../graphql/queries.graphql';
+import { getAll } from '../../graphql/queries.graphql';
 import { TodoListItem } from './';
 import { Subheader } from '../../assets/styles/components';
 import { TodoListPanel } from './styles';
 
 export const TodoList = () =>
   (
-    <Query query={getAllTodos}>
+    <Query query={getAll}>
       {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return `Error! ${error.message}`;

@@ -1,37 +1,47 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import { Mutation } from 'react-apollo';
 import { Input, PrimaryButton } from '../../assets/styles/components';
 import { InputPanel } from './styles';
+import { create } from '../../graphql/mutations.graphql';
+import { getAll } from '../../graphql/queries.graphql';
+import { convertQueryToString } from '../../graphql/gqlHelpers';
 
-const defaultProps = {
-  inputValue: '',
-  onSubmit: _.noop,
-  onChange: _.noop,
+const query = convertQueryToString(getAll);
+
+export const TodoForm = () => {
+  let input;
+  return (
+    <Mutation
+      mutation={create}
+      update={(cache, { data: { createTodo } }) => {
+        const { todos } = cache.readQuery({ query });
+        cache.writeQuery({
+          query,
+          data: { todos: todos.concat([createTodo]) },
+        });
+      }}
+    >
+      {createMutation => (
+        <div>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            createMutation({ variables: { text: input.value } });
+            input.value = '';
+          }}
+          >
+            <InputPanel>
+              <Input
+                type="text"
+                id="input-add-todo"
+                innerRef={(node) => {
+                  input = node;
+                }}
+                placeholder="e.g. Complete Typescript course"
+                required
+              />
+            </InputPanel>
+            <PrimaryButton type="submit" >Add</PrimaryButton>
+          </form>
+        </div>)}
+    </Mutation>);
 };
-
-const propTypes = {
-  onSubmit: PropTypes.func,
-  onChange: PropTypes.func,
-  inputValue: PropTypes.string,
-};
-
-export const TodoForm = ({
-  onSubmit, onChange, inputValue,
-}) => (
-  <form onSubmit={onSubmit}>
-    <InputPanel>
-      <Input
-        type="text"
-        onChange={onChange}
-        id="input-add-todo"
-        value={inputValue}
-        placeholder="e.g. Complete Typescript course"
-      />
-    </InputPanel>
-    <PrimaryButton type="submit" >Add</PrimaryButton>
-  </form>
-);
-
-TodoForm.propTypes = propTypes;
-TodoForm.defaultProps = defaultProps;

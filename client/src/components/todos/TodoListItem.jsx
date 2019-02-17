@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from 'react-apollo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { deleteTodo } from '../../graphql/mutations.graphql';
-import { getAllTodos } from '../../graphql/queries.graphql';
+import { remove } from '../../graphql/mutations.graphql';
+import { getAll } from '../../graphql/queries.graphql';
 import { TodoListItemPanel, ContainerPanel } from './styles';
 import { CheckBox } from '../shared';
 import { convertQueryToString } from '../../graphql/gqlHelpers';
@@ -12,7 +12,7 @@ const defaultProps = {
   todo: {},
 };
 
-const query = convertQueryToString(getAllTodos);
+const query = convertQueryToString(getAll);
 
 const propTypes = {
   todo: PropTypes.shape({
@@ -47,7 +47,7 @@ export const TodoListItem = ({ todo }) => {
       </ContainerPanel>
       {isHovering &&
         <Mutation
-          mutation={deleteTodo}
+          mutation={remove}
           variables={{ id }}
           update={(cache) => {
             const { todos } = cache.readQuery({ query });

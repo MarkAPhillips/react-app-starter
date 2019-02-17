@@ -1,4 +1,4 @@
-mutation createTodo($text:String!){
+mutation create($text:String!){
   createTodo(input: {
     item: $text,
   }) {
@@ -9,7 +9,7 @@ mutation createTodo($text:String!){
   }
 }
 
-mutation updateTodo($id: ID!, $text:String, $completed:Boolean){
+mutation update($id: ID!, $text:String, $completed:Boolean){
   updateTodo(
     id: $id
     input: {
@@ -23,7 +23,7 @@ mutation updateTodo($id: ID!, $text:String, $completed:Boolean){
   }
 }
 
-mutation deleteTodo($id: ID!){
+mutation remove($id: ID!){
   deleteTodo(
     id: $id
 )
