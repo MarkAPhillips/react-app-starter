@@ -1,8 +1,8 @@
 import React from 'react';
-import _ from 'lodash';
-import { componentSnapshotShouldMatch, mockConnectedComponent } from '../../testUtils';
+import { MockedProvider } from 'react-apollo/test-utils';
+import { getAll } from '../../../src/graphql/queries.graphql';
+import { componentSnapshotShouldMatch } from '../../testUtils';
 import { TodoList } from '../../../src/components/todos';
-
 
 describe('TodoList specs', () => {
   const todos = [{
@@ -11,10 +11,26 @@ describe('TodoList specs', () => {
     item: 'Todo item',
   }];
 
+  const mocks = [
+    {
+      request: {
+        query: getAll,
+      },
+      result: {
+        data: {
+          todos,
+        },
+      },
+    },
+  ];
+
   it('should render the component ', () => {
     const component =
-      <TodoList todos={todos} onStatusChange={_.noop} />;
+      (
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <TodoList />
+        </MockedProvider>);
 
-    componentSnapshotShouldMatch(mockConnectedComponent(component));
+    componentSnapshotShouldMatch((component));
   });
 });
