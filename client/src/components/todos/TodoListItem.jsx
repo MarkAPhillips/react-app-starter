@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from 'react-apollo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { remove } from '../../graphql/mutations.graphql';
+import { remove, update } from '../../graphql/mutations.graphql';
 import { getAll } from '../../graphql/queries.graphql';
 import { TodoListItemPanel, ContainerPanel } from './styles';
 import { CheckBox } from '../shared';
@@ -39,11 +39,19 @@ export const TodoListItem = ({ todo }) => {
       onMouseLeave={() => handleMouseHover(false)}
     >
       <ContainerPanel>
-        <CheckBox
-          id={id}
-          completed={completed}
-          item={item}
-        />
+        <Mutation mutation={update}>
+          { updateMutation => (
+            <CheckBox
+              id={id}
+              completed={completed}
+              item={item}
+              onChange={(e) => {
+                const { checked } = e.target;
+                updateMutation({ variables: { id, completed: checked } });
+              }}
+            />)
+          }
+        </Mutation>
       </ContainerPanel>
       {isHovering &&
         <Mutation
