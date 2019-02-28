@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Mutation } from 'react-apollo';
 import { Input, PrimaryButton } from '../../assets/styles/components';
 import { InputPanel } from './styles';
@@ -9,7 +9,7 @@ import { convertQueryToString } from '../../graphql/gqlHelpers';
 const query = convertQueryToString(getAll);
 
 export const TodoForm = () => {
-  let input;
+  const input = useRef('');
   return (
     <Mutation
       mutation={create}
@@ -25,17 +25,15 @@ export const TodoForm = () => {
         <div>
           <form onSubmit={(e) => {
             e.preventDefault();
-            createMutation({ variables: { text: input.value } });
-            input.value = '';
+            createMutation({ variables: { text: input.current.value } });
+            input.current.value = '';
           }}
           >
             <InputPanel>
               <Input
                 type="text"
                 id="input-add-todo"
-                innerRef={(node) => {
-                  input = node;
-                }}
+                innerRef={input}
                 placeholder="e.g. Complete Typescript course"
                 required
               />
