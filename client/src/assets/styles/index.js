@@ -1,11 +1,11 @@
 import styledNormalize from 'styled-normalize';
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { fonts, colours } from './variables';
 
 import externalFont from '../../assets/fonts/OpenSans-Regular-webfont.woff';
 
-export default () => injectGlobal`
+export const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
 
   @font-face {

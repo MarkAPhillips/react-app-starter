@@ -26,7 +26,7 @@ export const Button = styled.button`
   }
 `;
 
-export const PrimaryButton = Button.extend`
+export const PrimaryButton = styled(Button)`
   background: ${colours.blue};
   color: ${colours.white};
   border: 1px solid ${colours.blue};

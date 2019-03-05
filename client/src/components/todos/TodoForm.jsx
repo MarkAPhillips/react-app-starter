@@ -33,7 +33,7 @@ export const TodoForm = () => {
               <Input
                 type="text"
                 id="input-add-todo"
-                innerRef={input}
+                ref={input}
                 placeholder="e.g. Complete Typescript course"
                 required
               />
