@@ -20,10 +20,11 @@ export const Button = styled.button`
   margin: 0.5em;
   padding: 0.25em 0.5em;
   border-radius: 3px;
-  cursor: pointer;
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   &:hover {
     opacity: 0.8;
   }
+  opacity: ${props => (props.disabled ? '0.8' : '')};
 `;
 
 export const PrimaryButton = styled(Button)`

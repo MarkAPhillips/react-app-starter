@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import { Input, PrimaryButton } from '../../assets/styles/components';
 import { InputPanel } from './styles';
@@ -9,7 +9,18 @@ import { convertQueryToString } from '../../graphql/gqlHelpers';
 const query = convertQueryToString(getAll);
 
 export const TodoForm = () => {
-  const input = useRef('');
+  const [text, setTextValue] = useState('');
+
+  const handleTextChange = e => setTextValue(e.target.value);
+
+  const handleSubmit = (e, createMutation) => {
+    e.preventDefault();
+    createMutation({ variables: { text } });
+    setTextValue('');
+  };
+
+  const disabled = text === '';
+
   return (
     <Mutation
       mutation={create}
@@ -23,22 +34,17 @@ export const TodoForm = () => {
     >
       {createMutation => (
         <div>
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            createMutation({ variables: { text: input.current.value } });
-            input.current.value = '';
-          }}
-          >
+          <form onSubmit={e => handleSubmit(e, createMutation)}>
             <InputPanel>
               <Input
                 type="text"
+                value={text}
                 id="input-add-todo"
-                ref={input}
+                onChange={e => handleTextChange(e)}
                 placeholder="e.g. Complete Typescript course"
-                required
               />
             </InputPanel>
-            <PrimaryButton type="submit">Add</PrimaryButton>
+            <PrimaryButton disabled={disabled} type="submit">Add</PrimaryButton>
           </form>
         </div>
       )}
