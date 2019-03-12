@@ -49,11 +49,13 @@ export const TodoListItem = ({ todo }) => {
                 const { checked } = e.target;
                 updateMutation({ variables: { id, completed: checked } });
               }}
-            />)
+            />
+          )
           }
         </Mutation>
       </ContainerPanel>
-      {isHovering &&
+      {isHovering
+        && (
         <Mutation
           mutation={remove}
           variables={{ id }}
@@ -69,9 +71,13 @@ export const TodoListItem = ({ todo }) => {
             <ContainerPanel
               onClick={deleteMutation}
               isAction
-            > <FontAwesomeIcon icon="trash-alt" />
-            </ContainerPanel>) }
-        </Mutation>}
+            >
+              {' '}
+              <FontAwesomeIcon icon="trash-alt" />
+            </ContainerPanel>
+          ) }
+        </Mutation>
+        )}
     </TodoListItemPanel>
   );
 };

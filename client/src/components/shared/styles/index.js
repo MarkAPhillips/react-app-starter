@@ -30,4 +30,3 @@ export const CheckBoxPanel = styled.div`
 export const CheckBoxLabel = styled.label`
   display: inline-block;
 `;
-

@@ -30,7 +30,7 @@ config.output = {
 config.plugins = [];
 
 /* Cleans the directory */
-config.plugins.push(new CleanWebpackPlugin(['./dist']));
+config.plugins.push(new CleanWebpackPlugin());
 
 /* Generates index.html file and injects the bundle.js file into it */
 config.plugins.push(new HtmlWebpackPlugin({

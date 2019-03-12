@@ -44,4 +44,3 @@ export const TodoFilterPanel = styled.div``;
 export const InputPanel = styled.div`
   width: 400px;
 `;
-

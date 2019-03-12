@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { fonts, colours } from './variables';
 
-import externalFont from '../../assets/fonts/OpenSans-Regular-webfont.woff';
+import externalFont from '../fonts/OpenSans-Regular-webfont.woff';
 
 export const GlobalStyle = createGlobalStyle`
   ${styledNormalize}

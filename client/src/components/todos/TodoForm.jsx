@@ -38,8 +38,10 @@ export const TodoForm = () => {
                 required
               />
             </InputPanel>
-            <PrimaryButton type="submit" >Add</PrimaryButton>
+            <PrimaryButton type="submit">Add</PrimaryButton>
           </form>
-        </div>)}
-    </Mutation>);
+        </div>
+      )}
+    </Mutation>
+  );
 };

@@ -4,7 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import App from './App';
-import { GlobalStyle } from './assets/styles/';
+import { GlobalStyle } from './assets/styles';
 import { client } from './graphql/client';
 
 /* add font-awesome icons */
